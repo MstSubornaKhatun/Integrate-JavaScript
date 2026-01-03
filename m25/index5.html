@@ -1,0 +1,140 @@
+<!-- Traversing dom - getElementByQuerySelector, querySelectorAll -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>  
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .fruits-container li {
+            color: tomato;
+        }
+        #fruits-title {
+            color: black;
+        }
+
+        .important-places {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, odio accusantium ea architecto exercitationem dicta eveniet ratione earum inventore quos fugit cupiditate excepturi, praesentium dolore corrupti neque similique et nostrum!</p>
+    </header>
+    <main>
+        <section>
+            <h1>My Awesome DOM website.</h1>
+            <ul>
+                <li>Jalal</li>
+                <li>Shafayet</li>
+                <li>Bonna</li>
+                <li>Dom de de de</li>
+            </ul>
+        </section>
+        <section class="fruits-container">
+            <h1 id="fruits-title" class="some-class random-class blue-bg">Fruits I like</h1>
+   
+            <ul >
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        </section>
+        <section>
+            <h1 id="places-title">Please I like to visit</h1>
+       
+            <ul>
+                <li class="important-places">Sondarban</li>
+                <li class="important-places">Bandarbon</li>
+                <li class="important-places">Katabon</li>   
+            <li class="other-place">Salbon</li>
+          
+            </ul>
+         
+        </section>
+        
+    </main>
+
+    <!-- javascript -->
+    <!-- script:src -->
+    <script src="js/dom.js"></script> 
+    <script>
+/*
+console ---
+ocument.getElementById('fruits-title').style.color = 'red' text color red hobe
+'red'
+document.getElementById('fruits-title').style 
+CSSStyleDeclaration {0: 'color', accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+
+
+document.getElementById('fruits-title').style.backgroundColor = 'yellow'
+'yellow'  bg yellow color hobe
+
+javascript a style property gulo camelCase a lekha hoi.
+
+
+
+document.getElementById('fruits-title').style.textAlign= 'center'
+'center'
+const title = document.getElementById('fruits-title')
+undefined
+title.getAttribute('class')
+'some-class random-class blue-bg'
+title.classList
+DOMTokenList(3) ['some-class', 'random-class', 'blue-bg', value: 'some-class random-class blue-bg']
+title.classList.remove('blue-bg')
+undefined
+title.classList
+DOMTokenList(2) ['some-class', 'random-class', value: 'some-class random-class']
+title.classList.add('purple-bg')
+undefined
+title.classList
+DOMTokenList(3) ['some-class', 'random-class', 'purple-bg', value: 'some-class random-class purple-bg']
+
+
+const title = document.getElementById('fruits-title')
+undefined
+title.setAttribute('title', 'tooltip set by JavaScript')
+undefined
+
+ata korar por fruits-title er element er upor hover korle tooltip ta show korbe.
+
+
+
+
+
+document.getElementsByClassName('fruits-container')
+HTMLCollection [section.fruits-container]
+document.getElementsByClassName('fruits-container')[0]
+<section class=​"fruits-container">​…​</section>​<h1 id=​"fruits-title" class=​"some-class random-class blue-bg" title=​"tooltip set by JavaScript">​Fruits I like​</h1>​<ul>​…​</ul>​</section>​
+document.getElementsByClassName('fruits-container')[0].innerHTML
+'\n            <h1 id="fruits-title" class="some-class random-class blue-bg" title="tooltip set by JavaScript">Fruits I like</h1>\n   \n            <ul>\n                <li>Apple</li>\n                <li>Banana</li>\n                <li>Carrot</li>\n            </ul>\n        '
+
+
+ata korle er modhe thaka full html code ta dekhte poya jabe.
+
+
+
+
+document.getElementsByClassName('fruits-container')[0].innerHTML = '<h2>ABC wow dom is changing </h2>'
+'<h2>ABC wow dom is changing </h2>'
+
+ata korle html change korajai.
+
+
+document.getElementsByClassName('fruits-container')[0].innerText
+'Fruits I like\nApple\nBanana\nCarrot'
+
+ate vitorer lekha ta shudhu dekha jabe.
+
+
+
+
+
+*/ 
+    </script> 
+</body>
+</html>

@@ -35,7 +35,7 @@
             </ul>
         </section>
         <section class="fruits-container">
-            <h1 id="fruits-title">Fruits I like</h1>
+            <h1 id="fruits-title" class="some-class random-class blue-bg">Fruits I like</h1>
    
             <ul >
                 <li>Apple</li>
@@ -43,7 +43,7 @@
                 <li>Carrot</li>
             </ul>
         </section>
-        <section>
+        <section id="places-container" class="large-text">
             <h1 id="places-title">Please I like to visit</h1>
        
             <ul>
@@ -60,79 +60,10 @@
 
     <!-- javascript -->
     <!-- script:src -->
-    <script src="js/dom.js"></script> 
+    <script src="js/dom.js"></script>
+    <script src="js/styleInJs.js"></script> 
     <script>
- /*
- console ---
-document.querySelectorAll('fruits-title')
-NodeList []
-document.querySelectorAll('#fruits-title')
-NodeList [h1#fruits-title]
-document.querySelectorAll('.fruits-container')
-NodeList [section.fruits-container]
-document.querySelectorAll('.fruits-container li')
-NodeList(3) [li, li, li]
-    
-
-document.querySelector('.fruits-container li')
-<li>​…​</li>​ 
-document.querySelectorAll('.fruits-container li')
-NodeList(3) [li, li, li]
-
-*/
-
-
-// option-1:getElementsByTagName
-const allHeadings = document.getElementsByTagName('h1');
-        // console.log(allHeadings); 
-        for (const h1 of allHeadings){
-            console.log(h1);
-            console.log(h1.innerText);
-        }
      
-       
-
-// option-2: getElementById
-       const fruitsTitle = document.getElementById('fruits-title');
-       fruitsTitle.innerText = 'Fruits changed by JavaScript'
- 
-       
-// option-3: getElementsByClassName       
-const places = document.getElementsByClassName('important-places');
-        // console.log(places); 
-      
-    for (const place of places){
-        // console.log(place);
-       console.log(place.innerText);
-       }
-    
-
-// option-4: querySelectorAll
-
-// option-5: querySelectorAll
-const someLi = document.querySelectorAll('.fruits-container li');
-// console.log(someLi); // NodeList(3) [li, li, li]
-for(const li of someLi){
-    // console.log(li);
-    /*
-index3.html:84 <li>​…​</li>​
-index3.html:84 <li>​…​</li>​
-index3.html:84 <li>​…​</li>
-*/ 
-
-    // console.log(li.innerText);
-    /*
-    index3.html:91 Apple
-index3.html:91 Banana
-index3.html:91 Carrot
-    */ 
-
-
-}
-
-
-
-
     </script> 
 </body>
 </html>

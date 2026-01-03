@@ -99,3 +99,159 @@ html
     - getElementById() → unique id দিয়ে একটি element খুঁজে বের করে।
     - getElementsByClassName() → class name দিয়ে একাধিক elements খুঁজে বের করে।
     - DOM access করার সময় নির্দিষ্ট element চাইলে getElementById, আর group of elements চাইলে getElementsByClassName ব্যবহার করা হয়।
+
+
+
+
+class-4:
+4. Traversing dom - getElementByQuerySelector, querySelectorAll
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+ - NodeList vs HTMLCollection পার্থক্য
+ - querySelector() কী?
+ - querySelectorAll() কী?
+ - HTML থেকে element নেওয়ার ৫টা option কী কী?
+
+📝 Notes (বিস্তারিত তথ্য)
+🔹 NodeList vs HTMLCollection
+
+ - HTMLCollection → Live list (DOM পরিবর্তন হলে আপডেট হয়)।
+ - NodeList → Static list (DOM পরিবর্তন হলেও আপডেট হয় না, unless re-query করা হয়)।
+ - দুটোই array-like, কিন্তু আসল array নয়।
+
+
+
+🔹 querySelector()
+
+ - CSS selector দিয়ে প্রথম matching element রিটার্ন করে।
+ - Syntax → document.querySelector("selector")
+ - Example → document.querySelector(".title") → প্রথম .title class element।
+
+
+🔹 querySelectorAll()
+
+ - CSS selector দিয়ে সব matching elements রিটার্ন করে।
+ - Syntax → document.querySelectorAll("selector")
+ - একটি NodeList রিটার্ন করে।
+ - Example → document.querySelectorAll("p") → সব <p> elements।
+
+
+🔹 HTML থেকে element নেওয়ার ৫টা option
+
+ - document.getElementById("idName") → unique id দিয়ে element।
+ - document.getElementsByClassName("className") → class name দিয়ে একাধিক elements।
+ - document.getElementsByTagName("tagName") → tag name দিয়ে elements।
+ - document.querySelector("selector") → প্রথম matching element (CSS selector)।
+ - document.querySelectorAll("selector") → সব matching elements (NodeList আকারে)।
+
+📌 Summary
+ - HTMLCollection → live, NodeList → static।
+ - querySelector() → প্রথম matching element।
+ - querySelectorAll() → সব matching elements।
+ - HTML থেকে element নেওয়ার ৫টা প্রধান উপায় হলো: getElementById, getElementsByClassName, getElementsByTagName, querySelector, querySelectorAll।
+
+
+class 5:
+5. Dynamic style, getAttribute, setAttribute, innerText, innerHTML
+
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+ - Dynamic style কীভাবে কাজ করে?
+ - getAttribute() কী?
+ - setAttribute() কী?
+ - innerText কী?
+ - innerHTML কী?
+
+📝 Notes (বিস্তারিত তথ্য)
+🔹 Dynamic Style
+
+ - JavaScript দিয়ে DOM element-এর CSS style পরিবর্তন করা যায়।
+ - Syntax → element.style.property = "value"
+ - Example → document.getElementById("box").style.backgroundColor = "red"
+
+🔹 getAttribute()
+
+ - নির্দিষ্ট attribute-এর মান পড়তে ব্যবহৃত হয়।
+ - Syntax → element.getAttribute("attributeName")
+ - Example → link.getAttribute("href") → link-এর URL বের করবে।
+
+🔹 setAttribute()
+
+ - নির্দিষ্ট attribute-এর মান সেট/পরিবর্তন করতে ব্যবহৃত হয়।
+ - Syntax → element.setAttribute("attributeName", "value")
+ - Example → img.setAttribute("src", "newImage.png")
+
+🔹 innerText
+
+ - Element-এর visible text content রিটার্ন করে বা সেট করে।
+ - CSS style (যেমন display:none) respect করে।
+ - Example → element.innerText = "Hello World"
+
+🔹 innerHTML
+
+ - Element-এর HTML content রিটার্ন করে বা সেট করে।
+ - HTML tags সহ content manipulate করা যায়।
+ - Example → element.innerHTML = "<b>Hello</b> World"
+
+📌 Summary
+ - Dynamic style → JavaScript দিয়ে CSS পরিবর্তন।
+ - getAttribute() → attribute পড়া।
+ - setAttribute() → attribute সেট/পরিবর্তন।
+ - innerText → শুধু visible text content।
+ - innerHTML → HTML content (tags সহ)।
+
+
+ class 6:
+6. Styling dom properties, add and remove css class using JS
+
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+ - DOM element-এর style property কীভাবে পরিবর্তন করা যায়?
+ - CSS class add/remove করার উপায় কী?
+ - Example code কীভাবে কাজ করে?
+
+📝 Notes (বিস্তারিত তথ্য)
+🔹 Styling DOM Properties
+
+ - JavaScript দিয়ে সরাসরি DOM element-এর style পরিবর্তন করা যায়।
+ - Syntax → element.style.property = "value"
+
+  - Example →
+ js
+ section.style.border = '3px solid steelblue';
+ section.style.marginBottom = '5px';
+ section.style.borderRadius = '15px';
+ section.style.paddingLeft = '7px';
+ section.style.backgroundColor = 'lightgray';
+  - এখানে প্রতিটি <section> element-এর border, margin, radius, padding, backgroundColor পরিবর্তন হচ্ছে।
+
+🔹 Add CSS Class
+
+ - element.classList.add("className") → নতুন CSS class যোগ করে।
+
+Example →
+js
+ placesContainer.classList.add('text-center');
+  - এখানে placesContainer element-এ text-center class যোগ হচ্ছে।
+
+🔹 Remove CSS Class
+
+ - element.classList.remove("className") → নির্দিষ্ট CSS class মুছে ফেলে।
+
+Example →
+  js  
+  placesContainer.classList.remove('large-text');
+   - এখানে placesContainer element থেকে large-text class সরানো হচ্ছে।
+
+🔹 Benefit
+
+ - Inline style দিয়ে সরাসরি property পরিবর্তন করা যায়।
+ - Class add/remove করে external CSS file থেকে style control করা যায় → maintainability বেশি।
+
+📌 Summary
+JavaScript দিয়ে DOM element-এর style property সরাসরি পরিবর্তন করা যায় (element.style.property)। এছাড়া classList.add() এবং classList.remove() ব্যবহার করে CSS class যোগ বা মুছে ফেলা যায়। Inline style immediate change দেয়, আর class manipulation external CSS-এর সাথে কাজ করে, যা বেশি scalable।
+
+
+
+class 7:
+7. NodeList, htmlcollection, parentNode, childnodes, createElement
