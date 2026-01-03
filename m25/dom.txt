@@ -255,3 +255,267 @@ JavaScript দিয়ে DOM element-এর style property সরাসরি প
 
 class 7:
 7. NodeList, htmlcollection, parentNode, childnodes, createElement
+google seacrh: mdn er article --> dom node eta poro (docs porar ovvas vlo)
+
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+NodeList কী?
+
+HTMLCollection কী?
+
+parentNode কী?
+
+childNodes কী?
+
+createElement কীভাবে কাজ করে?
+
+DOM Node কী?
+
+Traversing DOM: querySelector, querySelectorAll
+
+📝 Notes (বিস্তারিত তথ্য)
+🔹 NodeList
+
+childNodes বা querySelectorAll() থেকে পাওয়া যায়।
+
+Static list → DOM পরিবর্তন হলেও আপডেট হয় না।
+
+Array-like, কিন্তু আসল array নয়।
+
+Example → placesContainer2.childNodes → NodeList(5) [text, h1, text, ul, text]
+
+🔹 HTMLCollection
+
+getElementsByTagName() বা getElementsByClassName() থেকে পাওয়া যায়।
+
+Live list → DOM পরিবর্তন হলে সাথে সাথে আপডেট হয়।
+
+Example → document.getElementsByClassName("important-places")
+
+🔹 parentNode
+
+কোনো node-এর immediate parent node রিটার্ন করে।
+
+Example → placesUL.parentNode → <section id="places-container">...</section>
+
+🔹 childNodes
+
+কোনো node-এর সব child nodes (elements, text, comment) রিটার্ন করে।
+
+Example → placesContainer2.childNodes[3].childNodes → NodeList(9) [text, li, text, li, text, li, text, li, text]
+
+🔹 createElement()
+
+নতুন DOM element তৈরি করতে ব্যবহৃত হয়।
+
+Syntax → document.createElement("tagName")
+
+Example →
+
+js
+const li = document.createElement('li');
+li.innerText = 'Brand New Places to go.';
+placesUL.appendChild(li);
+🔹 DOM Node
+
+DOM হলো tree structure, যেখানে প্রতিটি অংশ একটি node।
+
+Node types → Document, Element, Attribute, Text, Comment।
+
+Example → <li class="important-places">Bandarbon</li> হলো একটি Element Node।
+
+🔹 Traversing DOM
+
+querySelector() → CSS selector দিয়ে প্রথম matching element রিটার্ন করে।
+
+Example → document.querySelector('#places-container ul') → প্রথম <ul> element।
+
+querySelectorAll() → CSS selector দিয়ে সব matching elements রিটার্ন করে।
+
+Example → document.querySelectorAll('.important-places') → সব <li> যাদের class important-places।
+
+📌 Summary
+NodeList → static, HTMLCollection → live।
+
+parentNode → immediate parent, childNodes → সব child nodes।
+
+createElement() → নতুন element তৈরি করে DOM-এ যোগ করা যায়।
+
+DOM Node হলো ওয়েবপেজের প্রতিটি অংশের মৌলিক representation।
+
+querySelector → প্রথম matching element, querySelectorAll → সব matching elements।
+
+
+
+
+class 8:
+8. Create HTML elements using Javascript and appendChild
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+ - কীভাবে নতুন HTML element তৈরি করা যায়?
+ - appendChild() কীভাবে কাজ করে?
+ - Full section add করার ধাপগুলো কী?
+ - innerHTML দিয়ে element যোগ করার উপায় কী?
+
+📝 Notes (বিস্তারিত তথ্য)
+🔹 নতুন element তৈরি করা
+
+ - document.createElement("tagName") ব্যবহার করে নতুন element তৈরি করা যায়।
+ - Example →
+
+js
+const li = document.createElement('li');
+li.innerText = 'pahartoli bon';
+
+🔹 appendChild()
+
+ - কোনো parent node-এ নতুন child node যোগ করতে ব্যবহৃত হয়।
+ - Example →
+
+js
+placesList.appendChild(li);
+এখানে placesList-এর মধ্যে নতুন <li> যোগ হচ্ছে।
+
+🔹 Full section add করার ধাপ
+
+1. Where to add → parent container খুঁজে বের করা (getElementById)।
+
+js
+const mainContainer = document.getElementById('main-container');
+
+
+2. What to add → নতুন section, h1, ul, li তৈরি করা।
+
+js
+const section = document.createElement('section');
+const h1 = document.createElement('h1');
+h1.innerText = 'My Food List';
+section.appendChild(h1);
+
+
+3. Add children → ul → li elements append করা।
+
+js
+const ul = document.createElement('ul');
+const li1 = document.createElement('li');
+li1.innerText = 'biryani';
+ul.appendChild(li1);
+
+
+4. Final append → section → mainContainer এ যোগ করা।
+
+js
+section.appendChild(ul);
+mainContainer.appendChild(section);
+🔹 innerHTML দিয়ে element যোগ করা
+
+ - সরাসরি HTML string ব্যবহার করে element-এর ভিতরে content বসানো যায়।
+ - Example →
+ - js
+const sectionDress = document.createElement('section');
+sectionDress.innerHTML = `
+    <h1>My Dress section</h1>
+    <ul>
+        <li>t-shirt</li>
+        <li>lungi</li>
+        <li>genji</li>
+    </ul>
+`;
+mainContainer.appendChild(sectionDress);
+📌 Summary
+ - createElement() দিয়ে নতুন element তৈরি হয়।
+ - appendChild() parent node-এ child যোগ করে।
+ - Step-by-step করে পুরো section তৈরি করা যায় (h1, ul, li)।
+ - innerHTML ব্যবহার করলে shortcut আকারে HTML structure বসানো যায়।
+
+
+
+
+module Summary
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+ - getElementsByTagName() কী করে?
+ - getElementsByClassName() কী করে?
+ - getElementById() কীভাবে কাজ করে?
+ - querySelector() ও querySelectorAll() এর ব্যবহার কী?
+ - কীভাবে নতুন element তৈরি ও append করা যায়?
+
+📝 Notes (বিস্তারিত তথ্য)
+🔹 getElementsByTagName()
+
+নির্দিষ্ট tag name অনুযায়ী সব elements খুঁজে বের করে।
+
+Return type → HTMLCollection (live)।
+
+Example →
+
+js
+const allLi = document.getElementsByTagName('li');
+console.log(allLi); // HTMLCollection(12)
+🔹 getElementsByClassName()
+
+নির্দিষ্ট class name অনুযায়ী সব elements খুঁজে বের করে।
+
+Return type → HTMLCollection (live)।
+
+Example →
+
+js
+const allTitles = document.getElementsByClassName('section-title');
+console.log(allTitles); // HTMLCollection(3)
+🔹 getElementById()
+
+নির্দিষ্ট unique id অনুযায়ী element খুঁজে বের করে।
+
+Return type → single element।
+
+Example →
+
+js
+const secondSection = document.getElementById('second-section');
+secondSection.style.color = 'white';
+secondSection.style.backgroundColor = 'tomato';
+🔹 querySelector() / querySelectorAll()
+
+CSS selector ব্যবহার করে element খুঁজে বের করে।
+
+querySelector() → প্রথম matching element।
+
+querySelectorAll() → সব matching elements (NodeList, static)।
+
+🔹 createElement() + appendChild()
+
+নতুন element তৈরি করে DOM-এ যোগ করা যায়।
+
+Example →
+
+js
+const li = document.createElement('li');
+li.innerText = 'My dynamic item';
+secondList.appendChild(li);
+🔹 innerHTML দিয়ে dynamic section যোগ করা
+
+সরাসরি HTML string ব্যবহার করে element-এর ভিতরে content বসানো যায়।
+
+Example →
+
+js
+const section = document.createElement('section');
+section.innerHTML = `
+    <h1>My dynamic section</h1>
+    <p>Extra text added inside paragraph</p>
+    <ul>
+        <li>List item-1</li>
+        <li>List item-2</li>
+        <li>List item-3</li>
+        <li>List item-4</li>
+    </ul>
+`;
+main.appendChild(section);
+📌 Summary
+ - HTMLCollection → live list (getElementsByTagName, getElementsByClassName)।
+ - NodeList → static list (querySelectorAll)।
+ - getElementById → unique element access।
+ - querySelector/querySelectorAll → CSS selector দিয়ে DOM traversing।
+ - createElement + appendChild → নতুন element তৈরি ও DOM-এ যোগ করা।
+ - innerHTML → shortcut আকারে HTML structure বসানো যায়।

@@ -1,0 +1,132 @@
+<!-- Traversing dom - getElementByQuerySelector, querySelectorAll -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>  
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .fruits-container li {
+            color: tomato;
+        }
+        #fruits-title {
+            color: black;
+        }
+
+        .important-places {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, odio accusantium ea architecto exercitationem dicta eveniet ratione earum inventore quos fugit cupiditate excepturi, praesentium dolore corrupti neque similique et nostrum!</p>
+    </header>
+    <main>
+        <section>
+            <h1>My Awesome DOM website.</h1>
+            <ul>
+                <li>Jalal</li>
+                <li>Shafayet</li>
+                <li>Bonna</li>
+                <li>Dom de de de</li>
+            </ul>
+        </section>
+        <section class="fruits-container">
+            <h1 id="fruits-title" class="some-class random-class blue-bg">Fruits I like</h1>
+   
+            <ul >
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        </section>
+        <section id="places-container" class="large-text">
+            <h1 id="places-title">Please I like to visit</h1>
+       
+            <ul>
+                <li class="important-places">Sondarban</li>
+                <li class="important-places">Bandarbon</li>
+                <li class="important-places">Katabon</li>   
+            <li class="other-place">Salbon</li>
+          
+            </ul>
+         
+        </section>
+        
+    </main>
+
+    <!-- javascript -->
+    <!-- script:src -->
+    <script src="js/dom.js"></script>
+    <script src="js/styleInJs.js"></script> 
+    <script>
+/*
+console ---
+
+const placesContainer2 = document.getElementById('places-container')
+undefined
+placesContainer2
+<section id=​"places-container" class=​"text-center" style=​"border:​ 3px solid steelblue;​ margin-bottom:​ 5px;​ border-radius:​ 15px;​ padding-left:​ 7px;​ background-color:​ lightgray;​">​…​</section>​
+placesContainer2.childNodes
+NodeList(5) [text, h1#places-title, text, ul, text]
+placesContainer2.firstChild
+#text
+placesContainer2.childNodes[1]
+<h1 id=​"places-title">​Please I like to visit​</h1>​
+placesContainer2.childNodes[3]
+<ul>​…​</ul>​
+placesContainer2.childNodes[3].childNodes
+NodeList(9) [text, li.important-places, text, li.important-places, text, li.important-places, text, li.other-place, text]
+placesContainer2.childNodes[3].childNodes[5]
+<li class=​"important-places">​…​</li>​
+placesContainer2.childNodes[3].childNodes[5].nextSibling
+#text
+placesContainer2.childNodes[3].childNodes[5]
+<li class=​"important-places">​…​</li>​
+const placesUL = document.querySelector('#places-container ul')
+undefined
+placesUL
+<ul>​…​</ul>​
+const li = document.createElement
+undefined
+document.createElement('p')
+<p>​</p>​
+document.createElement('span')
+<span>​</span>​
+document.createElement('div')
+<div>​</div>​
+document.createElement('li')
+<li>​</li>​
+document.createElement('section')
+<section>​</section>​
+const li = document.createElement('li')
+undefined
+li.innerText = 'Brand New Places to go.'
+'Brand New Places to go.'
+li
+<li>​Brand New Places to go.​</li>​
+placesUL
+<ul>​…​</ul>​
+const li = document.createElement('li')
+undefined
+document.createElement('li')
+<li>​</li>​
+placesUL.appendChild(li)
+<li>​…​</li>​::marker​</li>​
+const li2 = dcument.createElement('li')
+const li2 = document.createElement('li')
+undefined
+li2.innerText = 'anther dynamic li'
+'anther dynamic li'
+placesUL.appendChild(li2)
+<li>​…​</li>​
+placesUL.parentNode
+<section id=​"places-container" class=​"text-center" style=​"border:​ 3px solid steelblue;​ margin-bottom:​ 5px;​ border-radius:​ 15px;​ padding-left:​ 7px;​ background-color:​ lightgray;​">​…​</section>​
+
+*/
+    </script> 
+</body>
+</html>
