@@ -1,0 +1,101 @@
+DOM = Document Object Model
+   ---> HTML (mark up)
+   ---> CSS (style)
+   ---> JavaScript (manipulate)
+
+
+DOM
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+    - DOM কী?
+    - DOM কী define করে?
+    - Structure
+    - Purpose
+    - Node Types
+    - Access
+    - Manipulation
+    - Event Handling
+
+📝 Notes (বিস্তারিত তথ্য)
+DOM কী? → Document Object Model হলো একটি programming interface, যা HTML/XML ডকুমেন্টকে tree structure আকারে উপস্থাপন করে।
+
+DOM কী? → Document Object Model হলো একটি programming interface, যা HTML/XML ডকুমেন্টকে tree structure আকারে উপস্থাপন করে।
+
+Structure → ডকুমেন্টকে nodes (elements, attributes, text) আকারে সাজানো হয়। Root node → child nodes → sub-child nodes।
+
+Purpose → JavaScript দিয়ে ওয়েবপেজের content, structure, এবং style dynamically পরিবর্তন করা যায়।
+
+Node Types → Document Node, Element Node, Attribute Node, Text Node।
+
+Access → document.getElementById(), querySelector(), getElementsByClassName() ইত্যাদি দিয়ে DOM element access করা যায়।
+
+Manipulation →
+
+    - Content পরিবর্তন: element.      innerHTML
+    - Style পরিবর্তন: element.style.color = "red"
+    - Element যোগ/মুছা: appendChild(), removeChild()
+
+Event Handling → DOM event system ব্যবহার করে user interaction (click, input, hover) handle করা যায়।
+
+📌 Summary
+DOM হলো ওয়েবপেজের একটি tree-like structure, যা JavaScript দিয়ে access ও manipulate করা যায়। এর মাধ্যমে ওয়েবপেজকে dynamic ও interactive করা সম্ভব।
+
+
+
+
+class 2
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+ - getElementById() কী?
+ - getElementsByClassName() কী?
+ - এদের মধ্যে পার্থক্য কী?
+ - কখন কোনটা ব্যবহার করা উচিত?
+
+📝 Notes (বিস্তারিত তথ্য)
+
+getElementById()
+ - নির্দিষ্ট একটি element খুঁজে বের করে, যার unique id থাকে।
+ - Syntax → document.getElementById("idName")
+ - সবসময় একটি element রিটার্ন করে (null যদি না পাওয়া যায়)।
+ - দ্রুত এবং নির্দিষ্ট element access করার জন্য সবচেয়ে কার্যকর।
+
+getElementsByClassName()
+ - নির্দিষ্ট class name অনুযায়ী একাধিক elements খুঁজে বের করে।
+ - Syntax → document.getElementsByClassName("className")
+ - একটি HTMLCollection রিটার্ন করে (array-এর মতো, কিন্তু আসল array নয়)।
+ - একাধিক element একসাথে access ও manipulate করার জন্য ব্যবহার হয়।
+
+মূল পার্থক্য
+ - getElementById() → শুধু একটি element (unique id)।
+ - getElementsByClassName() → একাধিক elements (same class)।
+ - Return type আলাদা: Element vs HTMLCollection।
+
+কখন ব্যবহার করা উচিত?
+ - যদি নির্দিষ্ট element দরকার হয় → getElementById()
+ - যদি একই class-এর একাধিক element দরকার হয় → getElementsByClassName()
+
+📝 Example Code
+html
+<!DOCTYPE html>
+<html>
+<body>
+  <h1 id="title">Hello</h1>
+  <p class="text">First</p>
+  <p class="text">Second</p>
+
+  <script>
+    // By ID
+    let heading = document.getElementById("title");
+    heading.style.color = "blue";
+
+    // By Class
+    let paras = document.getElementsByClassName("text");
+    paras[0].innerHTML = "Changed First!";
+    paras[1].innerHTML = "Changed Second!";
+  </script>
+</body>
+</html>
+
+
+📌 Summary
+    - getElementById() → unique id দিয়ে একটি element খুঁজে বের করে।
+    - getElementsByClassName() → class name দিয়ে একাধিক elements খুঁজে বের করে।
+    - DOM access করার সময় নির্দিষ্ট element চাইলে getElementById, আর group of elements চাইলে getElementsByClassName ব্যবহার করা হয়।

@@ -1,0 +1,114 @@
+<!-- getElementByTagName -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>  
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        li {
+            color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+    </header>
+    <main>
+        <h1>My Awesome DOM website.</h1>
+        <ul>
+            <li>Jalal</li>
+            <li>Shafayet</li>
+            <li>Bonna</li>
+            <li>Dom de de de</li>
+        </ul>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Carrot</li>
+        </ul>
+    </main>
+
+    <!-- javascript -->
+    <!-- script:src -->
+    <script src="js/dom.js"></script> 
+    <script>
+        const student = {
+            name: 'Abul',
+            id: 11,
+            study: function(time){
+                console.log(time, 'study korteche')
+            }
+        }
+        /*
+        inspect kore console a 
+        student.study(4) eta enter korle output 4 'study korteche'
+
+
+        console ---
+        document.getElementsByTagName('h1')
+        HTMLCollection(2) [h1, h1] // array like object
+
+
+        document.getElementsByTagName('li')
+        HTMLCollection(4) [li, li, li, li]
+        */ 
+
+        const liCollection = document.getElementsByTagName('li');
+        // console.log(liCollection); // HTMLCollection(4) [li, li, li, li]
+        for (const li of liCollection){
+            // console.log(li);
+            /*
+            index.html:56 <li>​…​</li>​
+            index.html:56 <li>​…​</li>​
+            index.html:56 <li>​…​</li>​
+            index.html:56 <li>​…​</li>​
+            */
+
+            console.log(li.innerText);
+            /*
+            index.html:69 Jalal
+            index.html:69 Shafayet
+            index.html:69 Bonna
+            index.html:69 Dom de de de
+            index.html:69 Apple
+            index.html:69 Banana
+            index.html:69 Carrot
+            */
+        }
+
+
+        const allHeadings = document.getElementsByTagName('h1');
+        // console.log(allHeadings); // index.html:75 HTMLCollection(2) [h1, h1]
+        for (const h1 of allHeadings){
+            console.log(h1);
+            /*
+            index.html:77 h1
+            index.html:77 h1
+            */
+            console.log(h1.innerText);
+            /*
+            Dom de de de
+            index.html:77 Welcome to my DOM
+            index.html:77
+            */ 
+        }
+        /*
+        console --
+        document.getElementsByTagName('li') ata kore enter korle otput nicher ata paoya jabe.
+        HTMLCollection(7) [li, li, li, li, li, li, li]
+        */ 
+
+
+
+
+
+
+
+
+        console.log('adding JS inside the html file')
+    </script> 
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!-- getElementByClass VS getElementById -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>  
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        li {
+            color: tomato;
+        }
+        #fruits-title {
+            color: black;
+        }
+
+        .important-places {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, odio accusantium ea architecto exercitationem dicta eveniet ratione earum inventore quos fugit cupiditate excepturi, praesentium dolore corrupti neque similique et nostrum!</p>
+    </header>
+    <main>
+        <section>
+            <h1>My Awesome DOM website.</h1>
+            <ul>
+                <li>Jalal</li>
+                <li>Shafayet</li>
+                <li>Bonna</li>
+                <li>Dom de de de</li>
+            </ul>
+        </section>
+        <section>
+            <h1 id="fruits-title">Fruits I like</h1>
+            <!-- 
+            document.getElementById('fruits-title') --- console ata likhe enter korle nicher ata output a dekha jabe.
+            <h1 id=​"fruits-title">​Fruits I like​</h1>​
+
+ -->
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        </section>
+        <section>
+            <h1 id="places-title">Please I like to visit</h1>
+            <!-- document.getElementById('places-title')
+            <h1 id=​"places-title">​Please I like to visit​</h1>​
+
+            document.getElementById('places-title').innerText
+            'Please I like to visit'
+
+            document.getElementById('places-title').innerText = 'My tour list'
+            'My tour list' -->
+            <ul>
+                <li class="important-places">Sondarban</li>
+                <li class="important-places">Bandarbon</li>
+                <li class="important-places">Katabon</li>   <!-- document.getElementsByClassName('important-places')
+            
+            HTMLCollection(3) [li.important-places, li.important-places, li.important-places] -->
+            <li class="other-place">Salbon</li>
+                <!-- 
+                document.getElementsByClassName('other-place')
+                HTMLCollection [li.other-place]
+                -->
+            </ul>
+         
+        </section>
+        
+    </main>
+
+    <!-- javascript -->
+    <!-- script:src -->
+    <script src="js/dom.js"></script> 
+    <script>
+        const student = {
+            name: 'Abul',
+            id: 11,
+            study: function(time){
+                console.log(time, 'study korteche')
+            }
+        }
+        /*
+        inspect kore console a 
+        student.study(4) eta enter korle output 4 'study korteche'
+
+
+        console ---
+        document.getElementsByTagName('h1')
+        HTMLCollection(2) [h1, h1] // array like object
+
+
+        document.getElementsByTagName('li')
+        HTMLCollection(4) [li, li, li, li]
+        */ 
+
+        const liCollection = document.getElementsByTagName('li');
+        // console.log(liCollection); // HTMLCollection(4) [li, li, li, li]
+        for (const li of liCollection){
+            // console.log(li);
+            /*
+            index.html:56 <li>​…​</li>​
+            index.html:56 <li>​…​</li>​
+            index.html:56 <li>​…​</li>​
+            index.html:56 <li>​…​</li>​
+            */
+
+            console.log(li.innerText);
+            /*
+            index.html:69 Jalal
+            index.html:69 Shafayet
+            index.html:69 Bonna
+            index.html:69 Dom de de de
+            index.html:69 Apple
+            index.html:69 Banana
+            index.html:69 Carrot
+            */
+        }
+
+
+        const allHeadings = document.getElementsByTagName('h1');
+        // console.log(allHeadings); // index.html:75 HTMLCollection(2) [h1, h1]
+        for (const h1 of allHeadings){
+            console.log(h1);
+            /*
+            index.html:77 h1
+            index.html:77 h1
+            */
+            console.log(h1.innerText);
+            /*
+            Dom de de de
+            index.html:77 Welcome to my DOM
+            index.html:77
+            */ 
+        }
+        /*
+        console --
+        document.getElementsByTagName('li') ata kore enter korle otput nicher ata paoya jabe.
+        HTMLCollection(7) [li, li, li, li, li, li, li]
+        */
+       
+        const places = document.getElementsByClassName('important-places');
+        // console.log(places); 
+        /*
+        
+        index2.html:144 HTMLCollection(3) [li.important-places, li.important-places, li.important-places]
+        */ 
+       for (const place of places){
+        // console.log(place);
+        /*
+        index2.html:150 li.important-places
+        index2.html:150 li.important-places
+        index2.html:150 li.important-places
+        */ 
+       console.log(place.innerText);
+       /*
+        index2.html:156 Sondarban
+        index2.html:156 Bandarbon
+        index2.html:156 Katabon
+       */
+
+       }
+
+       const fruitsTitle = document.getElementById('fruits-title');
+       fruitsTitle.innerText = 'Fruits changed by JavaScript'
+    /*
+    title change hoye jabe. 
+    Fruits changed by JavaScript ata hobe new title
+    */    
+
+
+
+
+
+
+
+
+
+
+
+
+        console.log('adding JS inside the html file')
+    </script> 
+</body>
+</html>
