@@ -1,0 +1,195 @@
+
+Question 01
+
+What is DOM?
+
+
+A
+Document Onion Model
+
+B
+Dangerous Old Man
+
+C
+Document Object Model
+
+correct-green-icon
+D
+Develop Own Mobile
+
+Your answer is correct!
+
+Question 02
+
+Which of the following is true about JavaScript?
+
+
+A
+High-level, interpreted programming language.
+
+B
+Low-level, interpreted programming language.
+
+C
+Makes a website interactive.
+
+D
+Both 1 and 3.
+
+correct-green-icon
+Your answer is correct!
+
+Question 03
+
+How will you connect an external script in a html file?
+
+
+A
+<javascript src=””></javascript>
+
+B
+<style src=””></style>
+
+C
+<script src=””></script>
+
+correct-green-icon
+D
+<link href=””><link>
+
+Your answer is correct!
+
+Question 04
+
+How will you get all the matching tags in a HTML file?
+
+
+A
+getElementsByTagName
+
+correct-green-icon
+B
+getElementsByName
+
+C
+getElementsByTag
+
+D
+document.TagName
+
+Your answer is correct!
+
+Question 05
+
+What does the innerText give you?
+
+
+A
+Only the text inside the tag
+
+correct-green-icon
+B
+The text and tags inside a tag
+
+C
+The text outside of that tag
+
+D
+Hiding secret message from your parents
+
+Your answer is correct!
+
+Question 06
+
+Set font size to 30px.
+
+document.getElementById(‘idName’)._____?________ = ‘30px’;
+
+A
+fontSize
+
+B
+fontsize
+
+C
+style.font-size
+
+D
+style.fontSize
+
+correct-green-icon
+Your answer is correct!
+
+Question 07
+
+How would you select the heading with id =”jantoos” using javascript? (be careful!)
+
+
+A
+#jantoos
+
+B
+document.getElementsById(“#jantoos”)
+
+C
+document.getElementsById(“jantoos”)
+
+D
+document.getElementById(“jantoos”)
+
+correct-green-icon
+Your answer is correct!
+
+Question 08
+
+Every node in the DOM represents ______________? ( google it)
+
+
+A
+link
+
+B
+a section
+
+C
+a view
+
+D
+an HTML element
+
+correct-green-icon
+Your answer is correct!
+
+Question 09
+
+How many script tags can you add in a html file?
+
+
+A
+Only one for one html file
+
+B
+Maximum five
+
+C
+You can add as many as needed
+
+correct-green-icon
+D
+Only even number of scripts tag
+
+Your answer is correct!
+
+Question 10
+
+The display value of most DOM elements is either inline or block. (google it).
+
+
+A
+True
+
+correct-green-icon
+B
+False
+
+Your answer is correct!
