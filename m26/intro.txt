@@ -431,9 +431,300 @@ class-7
 7. (semi-advanced) Event bubble and Stop propagating
 
 
+===============================
+7. Event Bubble and Stop Propagation
+===============================
+
+Cue (Questions):
+- Event bubbling কীভাবে কাজ করে?
+- stopPropagation() এবং stopImmediatePropagation() এর পার্থক্য কী?
+- Event bubble diagram কেমন হয়?
+
+Notes:
+
+1. Event Bubbling কী?
+   - যখন কোনো child element এ event ঘটে, তখন সেই event parent → grandparent → root পর্যন্ত propagate হয়।
+   - অর্থাৎ event উপরের দিকে bubble করে যায়।
+   - Example: li → ol → section → body
+
+2. Event Bubble Diagram (ASCII)
+   [body]
+     |
+     └── [section]
+           |
+           └── [ol]
+                 |
+                 └── [li]
+
+   - যদি li তে click হয়:
+     Step 1: li handler trigger হবে
+     Step 2: ol handler trigger হবে
+     Step 3: section handler trigger হবে
+     Step 4: body handler trigger হবে
+
+3. stopPropagation()
+   - Event কে parent এ propagate হওয়া থেকে থামায়।
+   - Example:
+     document.getElementById('item-2')
+       .addEventListener('click', function(event) {
+         console.log('item 2 clicked');
+         event.stopPropagation();
+       });
+
+   - এখানে li তে click হলে শুধু li handler চলবে, parent এ যাবে না।
+
+4. stopImmediatePropagation()
+   - একই element এ একাধিক handler থাকলে প্রথম handler চলার পর অন্য handler গুলোও থেমে যায়।
+   - Example:
+     document.getElementById('item-2')
+       .addEventListener('click', function(event) {
+         console.log('item 2 clicked');
+         event.stopImmediatePropagation();
+       });
+
+   - এখানে li তে click হলে শুধু প্রথম handler চলবে, একই li এর অন্য handler আর চলবে না।
+
+5. Multiple Handlers Example:
+   - item-2 এ একাধিক handler আছে।
+   - stopImmediatePropagation দিলে → শুধু প্রথম handler চলবে।
+   - stopPropagation দিলে → সব handler চলবে কিন্তু parent এ যাবে না।
+
+Summary:
+- Event bubbling → child থেকে parent পর্যন্ত event propagate হয়।
+- stopPropagation() → parent এ propagate হওয়া বন্ধ করে।
+- stopImmediatePropagation() → একই element এর অন্য handler গুলোও বন্ধ করে।
+- Diagram: li → ol → section → body
 
 
 
+class-8
+8. (advanced) Event delegate and benefit of Event bubble
 
+===============================
+8. Event Delegate and Benefit of Event Bubble
+===============================
+
+Cue (Questions):
+- Event delegate কী?
+- কেন event bubble উপকারী?
+- Event delegate এর সুবিধা কী?
+- Beginner-friendly example কেমন হবে?
+
+Notes:
+
+1. Event Delegate কী?
+   - Event delegate হলো একটি technique যেখানে child element গুলোর জন্য আলাদা আলাদা event handler না দিয়ে parent element এ একটি handler বসানো হয়।
+   - Event bubbling এর কারণে child element এ event ঘটলে parent এ পৌঁছায়।
+   - Parent এর handler event.target ব্যবহার করে child কে identify করতে পারে।
+
+2. Benefit of Event Bubble
+   - Event bubble এর কারণে parent এ বসানো handler child এর event ধরতে পারে।
+   - নতুন dynamically added child element গুলোও একই handler দ্বারা handle হয়।
+   - কোড কম হয়, performance ভালো হয়, maintain করা সহজ হয়।
+
+3. Example (Without Delegate)
+   - প্রতিটি li এর জন্য আলাদা handler বসাতে হয়।
+   - সমস্যা: নতুন li add করলে delete কাজ করে না।
+
+   const items = document.getElementsByClassName('item');
+   for(const item of items){
+     item.addEventListener('click', function(event){
+       event.target.parentNode.removeChild(event.target);
+     });
+   }
+
+4. Example (With Delegate)
+   - শুধু parent ol এ handler বসানো হয়।
+   - সব li click করলে delete হবে, নতুন li add হলেও কাজ করবে।
+
+   document.getElementById('item-list')
+     .addEventListener('click', function(event){
+       event.target.parentNode.removeChild(event.target);
+     });
+
+5. Add New Item Example
+   - Button click করলে নতুন li তৈরি হয় এবং ol এ append হয়।
+   - Delegate থাকার কারণে নতুন item এও click করলে delete হবে।
+
+   document.getElementById('btn-add-item')
+     .addEventListener('click', function(){
+       const ol = document.getElementById('item-list');
+       const li = document.createElement('li');
+       li.classList.add('item');
+       li.innerText = 'Brand new item added';
+       ol.appendChild(li);
+     });
+
+Summary:
+- Event delegate → parent এ handler বসিয়ে child এর event handle করা।
+- Benefit → কম কোড, নতুন element এও কাজ করে, performance ভালো।
+- Event bubble এর কারণে delegate কাজ করে।
+- Example → ol এ handler বসানো হলে সব li delete করা যায়, নতুন li add হলেও কাজ করে।
+
+
+class-9
+26-9 All about Events (Module Summary)
+
+
+===============================
+All About Events (Module Summary)
+===============================
+
+Cue (Questions):
+- Common HTML events কী কী?
+- Event handler কীভাবে কাজ করে?
+- addEventListener কীভাবে কাজ করে?
+- Event bubbling এবং capturing কী?
+- stopPropagation কীভাবে কাজ করে?
+- Event delegate কী?
+
+Notes:
+
+1. Common HTML Events
+   - onclick → কোনো element এ click করলে trigger হয়।
+   - onchange → input বা select এর মান পরিবর্তন হলে trigger হয়।
+   - onmouseover → mouse element এর উপর গেলে trigger হয়।
+   - onkeydown → keyboard এর key চাপলে trigger হয়।
+   - onload → page load হলে trigger হয়।
+   - onblur → input box থেকে cursor বের হলে trigger হয়।
+
+2. Event Handler
+   - Event handler হলো function যা কোনো event ঘটলে execute হয়।
+   - Example:
+     <button onclick="addName()">Add Name</button>
+     function addName() {
+       const nameInput = document.getElementById("name-input");
+       const newName = nameInput.value;
+       const nameContainer = document.getElementById("name-container");
+       const p = document.createElement("p");
+       p.innerText = newName;
+       nameContainer.appendChild(p);
+       nameInput.value = "";
+     }
+
+3. addEventListener
+   - Modern ও flexible উপায় event handle করার জন্য।
+   - Syntax: element.addEventListener("event", callback);
+   - Example:
+     document.getElementById("btn-add-name")
+       .addEventListener("click", function() {
+         console.log("Button clicked via addEventListener");
+       });
+
+4. Event Bubbling
+   - Event child থেকে parent পর্যন্ত propagate হয়।
+   - Example:
+     li → ul → section → body
+   - যদি li তে click হয়, parent গুলোতেও event trigger হয়।
+
+5. Event Capturing
+   - Bubbling এর বিপরীত।
+   - Event root থেকে child পর্যন্ত propagate হয়।
+   - addEventListener এর third parameter true দিলে capturing mode এ কাজ করে।
+   - Example:
+     element.addEventListener("click", handler, true);
+
+6. Stop Propagation
+   - Event কে parent এ propagate হওয়া থেকে থামায়।
+   - Example:
+     element.addEventListener("click", function(event) {
+       event.stopPropagation();
+     });
+
+   - stopImmediatePropagation → একই element এর অন্য handler গুলোও বন্ধ করে।
+
+7. Event Delegate
+   - Parent এ handler বসিয়ে child এর event handle করা।
+   - Benefit → কম কোড, নতুন element এও কাজ করে।
+   - Example:
+     document.getElementById("item-list")
+       .addEventListener("click", function(event) {
+         event.target.parentNode.removeChild(event.target);
+       });
+
+Summary:
+- Common events → onclick, onchange, onmouseover, onkeydown, onload, onblur
+- Event handler → function যা event ঘটলে execute হয়
+- addEventListener → best practice, multiple handler support করে
+- Event bubbling → child থেকে parent এ propagate
+- Event capturing → parent থেকে child এ propagate
+- stopPropagation → bubbling/capturing থামায়
+- Event delegate → parent এ handler বসিয়ে child এর event handle করা যায়
+
+
+class-10
+26-10 Basic JS Events all in One
+
+===============================
+Basic JavaScript Events (All in One)
+===============================
+
+1. What are Events in Web?
+- Event হলো কোনো action বা ঘটনা যা ওয়েবপেজে ঘটে।
+- উদাহরণ: user interaction (click, input, hover), browser action (load, resize), বা system-generated ঘটনা।
+- JavaScript event system ব্যবহার করে এগুলো detect ও handle করা যায়।
+
+2. Different Types of Events
+- Mouse Events → click, dblclick, mouseover, mouseout, mousemove
+- Keyboard Events → keydown, keyup, keypress
+- Form Events → submit, change, focus, blur
+- Window/Document Events → load, resize, scroll
+- Clipboard Events → copy, cut, paste
+- Touch Events → touchstart, touchmove, touchend
+
+3. Signature of addEventListener
+element.addEventListener(eventType, callbackFunction, useCapture);
+- eventType → string (যেমন "click", "keydown")
+- callbackFunction → function যা event ঘটলে execute হবে
+- useCapture → optional boolean (default false → bubbling, true → capturing)
+
+4. onClick Handler vs addEventListener
+- onClick handler:
+  btn.onclick = function() { ... }
+  → একবারে শুধু একটি handler assign করা যায়।
+- addEventListener:
+  btn.addEventListener("click", function() { ... })
+  → একাধিক handler attach করা যায়, flexible, modern best practice।
+
+5. Dispatching an Event / Event Chain / Event Propagation
+- যখন কোনো event ঘটে, সেটা DOM tree এর মাধ্যমে propagate হয়।
+- Propagation এর দুই ধাপ:
+  a) Capturing phase → root থেকে child পর্যন্ত যায়।
+  b) Bubbling phase → child থেকে root পর্যন্ত যায়।
+
+6. Event Capture vs Event Bubble
+- Capture → parent থেকে child এ propagate হয়।
+- Bubble → child থেকে parent এ propagate হয়।
+- Default behavior → bubbling।
+
+7. Stop Event Propagation
+- event.stopPropagation() → parent এ propagate হওয়া বন্ধ করে।
+- event.stopImmediatePropagation() → একই element এর অন্য handler গুলোও বন্ধ করে।
+
+8. Event Delegation
+- Parent এ handler বসিয়ে child এর event handle করা।
+- Benefit → কম কোড, নতুন element এও কাজ করে, performance ভালো।
+
+9. 3 Steps of Event Delegation
+Step 1: Parent element এ event listener বসানো।
+Step 2: event.target ব্যবহার করে কোন child এ event ঘটেছে তা identify করা।
+Step 3: সেই child element এর উপর প্রয়োজনীয় action নেওয়া।
+
+10. JS Event Loop
+- Event loop হলো JavaScript এর concurrency model।
+- Call stack → synchronous code execute করে।
+- Event queue → asynchronous callback গুলো রাখে।
+- Event loop → stack খালি হলে queue থেকে callback নিয়ে execute করে।
+- এর ফলে JavaScript single-threaded হলেও asynchronous কাজ করতে পারে।
+
+===============================
+Summary
+===============================
+- Events হলো ওয়েবপেজে ঘটে যাওয়া action।
+- addEventListener → best practice, multiple handler support করে।
+- Event propagation → capturing এবং bubbling।
+- stopPropagation → bubbling/capturing থামায়।
+- Event delegation → parent এ handler বসিয়ে child এর event handle করা।
+- JS Event loop → asynchronous কাজ manage করে।
 
 

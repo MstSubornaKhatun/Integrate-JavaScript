@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Events Summary</title>
+</head>
+<body>
+    <h1>DOM Events Summary</h1>
+    <input id="name-input" type="text" placeholder="Your Name" name="" id="">
+    <button onclick="addName()">Add Name</button>
+    <button id="btn-add-name">Add name 2</button>
+    <div id="name-container"></div>
+
+    <script>
+        function addName(){
+            // console.log('btn clicked')
+            const nameInput = document.getElementById('name-input');
+            // console.log(nameInput)
+
+            /*
+            p, span, div, h1, h2 asok element theke text pete innerText use kori r
+            input theke man paoyar jonno value use kori.
+            */
+           const newName = nameInput.value;
+        //    console.log(newName)
+
+        // paent
+        const nameContainer = document.getElementById('name-container');
+
+        // create p
+        const p = document.createElement('p');
+        p.innerText = newName;
+
+        // append
+        nameContainer.appendChild(p);
+
+        // clean inputfield
+        nameInput.value = '';
+        }
+
+
+        // add event listener
+        document.getElementById('btn-add-name')
+            .addEventListener('click', function(){
+
+        })
+    </script>
+</body>
+</html>

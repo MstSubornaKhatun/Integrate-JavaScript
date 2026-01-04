@@ -24,9 +24,9 @@
         
     </style>
 </head>
-<body>
+<body id="body">
     <h1>Explore Event bubble</h1>
-    <section>
+    <section id="list-container">
         <h3>List of things</h3>
         <!-- ol>li#item-$*6>lorem2 -->
         <ol id="item-list">
@@ -40,6 +40,24 @@
     </section>
 
     <script>
+        // stop bubble er jonno parameter event nite hobe
+        document.getElementById('item-2')
+            .addEventListener('click', function(event){
+                console.log('item 2 clicked')
+                event.stopImmediatePropagation()
+            })
+        // document.getElementById('item-2')
+        //     .addEventListener('click', function(event){
+        //         console.log('item 2 clicked')
+        //         event.stopPropagation()
+        //     })
+
+
+          document.getElementById('item-2')
+            .addEventListener('click', function(){
+                console.log('item 2 second clicked')
+            })
+
         // list tem 2 click handler
         document.getElementById('item-2')
             .addEventListener('click', function(){
@@ -51,6 +69,18 @@
         document.getElementById('item-list')
             .addEventListener('click', function(){
                 console.log('ol clicked')
+            })
+
+        // section click handler
+        document.getElementById('list-container')
+            .addEventListener('click', function(){
+                console.log('section clicked')
+            })
+
+        // body click handler
+        document.getElementById('body')
+            .addEventListener('click', function(){
+                console.log('body clicked')
             })
 
 
