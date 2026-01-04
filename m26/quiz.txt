@@ -1,0 +1,201 @@
+Question 01
+
+What is an event on a website? 
+
+
+A
+User clicks using a mouse
+
+B
+User typed anything using a keyboard
+
+C
+Website loading completed
+
+D
+All the above
+
+correct-green-icon
+Your answer is correct!
+
+Question 02
+
+Which one is not a keyboard event?
+
+
+A
+keydown
+
+B
+keyup
+
+C
+keypress
+
+D
+keyhug
+
+correct-green-icon
+Your answer is correct!
+
+Question 03
+
+How will you add the purchaseProduct function for clicking on the button?
+
+<button _______?_______>Purchase Now</button>
+
+A
+onClick = “purchaseProduct()”
+
+B
+onclick = “purchaseProduct”
+
+C
+onclick = "purchaseProduct()"
+
+correct-green-icon
+D
+I hate e-commerce shopping
+
+Your answer is correct!
+
+Question 04
+
+How will you add a click handler?
+
+document.getElementById(‘order’)_____?____(‘click’, function(){ })
+
+A
+addEventListener
+
+B
+.addClickHandler
+
+C
+.addOnEventListener
+
+D
+.addEventListener
+
+correct-green-icon
+Your answer is correct!
+
+Question 05
+
+What is a callback function in javascript? (google it)
+
+
+A
+function who back your call after midnight
+
+B
+A function who has a return statement
+
+C
+A function without a return statement
+
+D
+Pass a function as a parameter
+
+correct-green-icon
+Your answer is correct!
+
+Question 06
+
+What is event bubbling in JavaScript?
+
+
+A
+The process of capturing events starting from the root element down to the target element.
+
+B
+The process of propagating events from the target element up to its parent elements in the DOM hierarchy.
+
+correct-green-icon
+C
+The process of handling events asynchronously to prevent blocking the UI thread.
+
+D
+The process of dynamically generating event listeners based on user interactions.
+
+Your answer is correct!
+
+Question 07
+
+How can you access the inner content of a text input field?
+
+
+A
+text
+
+B
+innerText
+
+C
+value
+
+correct-green-icon
+D
+innerHTML
+
+Your answer is correct!
+
+Question 08
+
+Select the first element with the selector statement:  
+
+.main .title .t1
+
+A
+document.getElementsByClassname(“main”)
+
+B
+document.querySelector(“.main .title .t1”)
+
+correct-green-icon
+C
+document.querySelectorAll(".main .title .t1")
+
+D
+document.getElementById("main")
+
+Your answer is correct!
+
+Question 09
+
+Select the parent element of the element elm using one of the following choices.
+
+
+A
+ele.parentTag
+
+B
+elm.parentDiv
+
+C
+elm.parentNode
+
+correct-green-icon
+D
+elm.getParent
+
+Your answer is correct!
+
+Question 10
+
+How to remove the class “nav” from the following element?
+
+<p class=”nav”>I am Hero Alam 2</p>
+var p = document.getElementsByClassName(“nav”)[0];
+
+A
+p.classList.remove(“nav”)
+
+B
+p.className = “”
+
+C
+Both 1 and 2
+
+correct-green-icon
+Your answer is correct!

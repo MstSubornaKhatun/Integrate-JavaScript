@@ -1,79 +1,88 @@
+===============================
 DOM = Document Object Model
+===============================
    ---> HTML (mark up)
    ---> CSS (style)
    ---> JavaScript (manipulate)
 
-
-DOM
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
-    - DOM কী?
-    - DOM কী define করে?
-    - Structure
-    - Purpose
-    - Node Types
-    - Access
-    - Manipulation
-    - Event Handling
+- DOM কী?
+- DOM কী define করে?
+- Structure
+- Purpose
+- Node Types
+- Access
+- Manipulation
+- Event Handling
 
 📝 Notes (বিস্তারিত তথ্য)
-DOM কী? → Document Object Model হলো একটি programming interface, যা HTML/XML ডকুমেন্টকে tree structure আকারে উপস্থাপন করে।
+DOM কী?
+- Document Object Model হলো একটি programming interface, যা HTML/XML ডকুমেন্টকে tree structure আকারে উপস্থাপন করে।
 
-DOM কী? → Document Object Model হলো একটি programming interface, যা HTML/XML ডকুমেন্টকে tree structure আকারে উপস্থাপন করে।
+Structure:
+- ডকুমেন্টকে nodes (elements, attributes, text) আকারে সাজানো হয়।
+- Root node → child nodes → sub-child nodes।
 
-Structure → ডকুমেন্টকে nodes (elements, attributes, text) আকারে সাজানো হয়। Root node → child nodes → sub-child nodes।
+Purpose:
+- JavaScript দিয়ে ওয়েবপেজের content, structure, এবং style dynamically পরিবর্তন করা যায়।
 
-Purpose → JavaScript দিয়ে ওয়েবপেজের content, structure, এবং style dynamically পরিবর্তন করা যায়।
+Node Types:
+- Document Node
+- Element Node
+- Attribute Node
+- Text Node
 
-Node Types → Document Node, Element Node, Attribute Node, Text Node।
+Access:
+- document.getElementById()
+- querySelector()
+- getElementsByClassName()
 
-Access → document.getElementById(), querySelector(), getElementsByClassName() ইত্যাদি দিয়ে DOM element access করা যায়।
+Manipulation:
+- Content পরিবর্তন → element.innerHTML
+- Style পরিবর্তন → element.style.color = "red"
+- Element যোগ/মুছা → appendChild(), removeChild()
 
-Manipulation →
+Event Handling:
+- DOM event system ব্যবহার করে user interaction (click, input, hover) handle করা যায়।
 
-    - Content পরিবর্তন: element.      innerHTML
-    - Style পরিবর্তন: element.style.color = "red"
-    - Element যোগ/মুছা: appendChild(), removeChild()
-
-Event Handling → DOM event system ব্যবহার করে user interaction (click, input, hover) handle করা যায়।
-
-📌 Summary
+📌 Summary:
 DOM হলো ওয়েবপেজের একটি tree-like structure, যা JavaScript দিয়ে access ও manipulate করা যায়। এর মাধ্যমে ওয়েবপেজকে dynamic ও interactive করা সম্ভব।
 
 
+===============================
+Class 2: getElementById() vs getElementsByClassName()
+===============================
 
-
-class 2
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
- - getElementById() কী?
- - getElementsByClassName() কী?
- - এদের মধ্যে পার্থক্য কী?
- - কখন কোনটা ব্যবহার করা উচিত?
+- getElementById() কী?
+- getElementsByClassName() কী?
+- এদের মধ্যে পার্থক্য কী?
+- কখন কোনটা ব্যবহার করা উচিত?
 
 📝 Notes (বিস্তারিত তথ্য)
 
-getElementById()
- - নির্দিষ্ট একটি element খুঁজে বের করে, যার unique id থাকে।
- - Syntax → document.getElementById("idName")
- - সবসময় একটি element রিটার্ন করে (null যদি না পাওয়া যায়)।
- - দ্রুত এবং নির্দিষ্ট element access করার জন্য সবচেয়ে কার্যকর।
+getElementById():
+- নির্দিষ্ট একটি element খুঁজে বের করে, যার unique id থাকে।
+- Syntax → document.getElementById("idName")
+- সবসময় একটি element রিটার্ন করে (null যদি না পাওয়া যায়)।
+- দ্রুত এবং নির্দিষ্ট element access করার জন্য সবচেয়ে কার্যকর।
 
-getElementsByClassName()
- - নির্দিষ্ট class name অনুযায়ী একাধিক elements খুঁজে বের করে।
- - Syntax → document.getElementsByClassName("className")
- - একটি HTMLCollection রিটার্ন করে (array-এর মতো, কিন্তু আসল array নয়)।
- - একাধিক element একসাথে access ও manipulate করার জন্য ব্যবহার হয়।
+getElementsByClassName():
+- নির্দিষ্ট class name অনুযায়ী একাধিক elements খুঁজে বের করে।
+- Syntax → document.getElementsByClassName("className")
+- একটি HTMLCollection রিটার্ন করে (array-এর মতো, কিন্তু আসল array নয়)।
+- একাধিক element একসাথে access ও manipulate করার জন্য ব্যবহার হয়।
 
-মূল পার্থক্য
- - getElementById() → শুধু একটি element (unique id)।
- - getElementsByClassName() → একাধিক elements (same class)।
- - Return type আলাদা: Element vs HTMLCollection।
+মূল পার্থক্য:
+- getElementById() → শুধু একটি element (unique id)।
+- getElementsByClassName() → একাধিক elements (same class)।
+- Return type আলাদা: Element vs HTMLCollection।
 
 কখন ব্যবহার করা উচিত?
- - যদি নির্দিষ্ট element দরকার হয় → getElementById()
- - যদি একই class-এর একাধিক element দরকার হয় → getElementsByClassName()
+- নির্দিষ্ট element দরকার হলে → getElementById()
+- একই class-এর একাধিক element দরকার হলে → getElementsByClassName()
 
-📝 Example Code
-html
+📌 Example Code:
 <!DOCTYPE html>
 <html>
 <body>
@@ -94,428 +103,334 @@ html
 </body>
 </html>
 
-
-📌 Summary
-    - getElementById() → unique id দিয়ে একটি element খুঁজে বের করে।
-    - getElementsByClassName() → class name দিয়ে একাধিক elements খুঁজে বের করে।
-    - DOM access করার সময় নির্দিষ্ট element চাইলে getElementById, আর group of elements চাইলে getElementsByClassName ব্যবহার করা হয়।
-
+📌 Summary:
+- getElementById() → unique id দিয়ে একটি element খুঁজে বের করে।
+- getElementsByClassName() → class name দিয়ে একাধিক elements খুঁজে বের করে।
+- DOM access করার সময় নির্দিষ্ট element চাইলে getElementById, আর group of elements চাইলে getElementsByClassName ব্যবহার করা হয়।
 
 
-
-class-4:
-4. Traversing dom - getElementByQuerySelector, querySelectorAll
+===============================
+Class 4: Traversing DOM - querySelector() vs querySelectorAll()
+===============================
 
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
- - NodeList vs HTMLCollection পার্থক্য
- - querySelector() কী?
- - querySelectorAll() কী?
- - HTML থেকে element নেওয়ার ৫টা option কী কী?
+- NodeList vs HTMLCollection পার্থক্য
+- querySelector() কী?
+- querySelectorAll() কী?
+- HTML থেকে element নেওয়ার ৫টা option কী কী?
 
 📝 Notes (বিস্তারিত তথ্য)
-🔹 NodeList vs HTMLCollection
 
- - HTMLCollection → Live list (DOM পরিবর্তন হলে আপডেট হয়)।
- - NodeList → Static list (DOM পরিবর্তন হলেও আপডেট হয় না, unless re-query করা হয়)।
- - দুটোই array-like, কিন্তু আসল array নয়।
+NodeList vs HTMLCollection:
+- HTMLCollection → Live list (DOM পরিবর্তন হলে আপডেট হয়)।
+- NodeList → Static list (DOM পরিবর্তন হলেও আপডেট হয় না, unless re-query করা হয়)।
+- দুটোই array-like, কিন্তু আসল array নয়।
 
+querySelector():
+- CSS selector দিয়ে প্রথম matching element রিটার্ন করে।
+- Syntax → document.querySelector("selector")
+- Example → document.querySelector(".title")
 
+querySelectorAll():
+- CSS selector দিয়ে সব matching elements রিটার্ন করে।
+- Syntax → document.querySelectorAll("selector")
+- একটি NodeList রিটার্ন করে।
+- Example → document.querySelectorAll("p")
 
-🔹 querySelector()
+HTML থেকে element নেওয়ার ৫টা option:
+1. document.getElementById("idName")
+2. document.getElementsByClassName("className")
+3. document.getElementsByTagName("tagName")
+4. document.querySelector("selector")
+5. document.querySelectorAll("selector")
 
- - CSS selector দিয়ে প্রথম matching element রিটার্ন করে।
- - Syntax → document.querySelector("selector")
- - Example → document.querySelector(".title") → প্রথম .title class element।
-
-
-🔹 querySelectorAll()
-
- - CSS selector দিয়ে সব matching elements রিটার্ন করে।
- - Syntax → document.querySelectorAll("selector")
- - একটি NodeList রিটার্ন করে।
- - Example → document.querySelectorAll("p") → সব <p> elements।
-
-
-🔹 HTML থেকে element নেওয়ার ৫টা option
-
- - document.getElementById("idName") → unique id দিয়ে element।
- - document.getElementsByClassName("className") → class name দিয়ে একাধিক elements।
- - document.getElementsByTagName("tagName") → tag name দিয়ে elements।
- - document.querySelector("selector") → প্রথম matching element (CSS selector)।
- - document.querySelectorAll("selector") → সব matching elements (NodeList আকারে)।
-
-📌 Summary
- - HTMLCollection → live, NodeList → static।
- - querySelector() → প্রথম matching element।
- - querySelectorAll() → সব matching elements।
- - HTML থেকে element নেওয়ার ৫টা প্রধান উপায় হলো: getElementById, getElementsByClassName, getElementsByTagName, querySelector, querySelectorAll।
+📌 Summary:
+- HTMLCollection → live, NodeList → static।
+- querySelector() → প্রথম matching element।
+- querySelectorAll() → সব matching elements।
+- HTML থেকে element নেওয়ার ৫টা প্রধান উপায় হলো: getElementById, getElementsByClassName, getElementsByTagName, querySelector, querySelectorAll।
 
 
-class 5:
-5. Dynamic style, getAttribute, setAttribute, innerText, innerHTML
-
+===============================
+Class 5: Dynamic Style, getAttribute, setAttribute, innerText, innerHTML
+===============================
 
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
- - Dynamic style কীভাবে কাজ করে?
- - getAttribute() কী?
- - setAttribute() কী?
- - innerText কী?
- - innerHTML কী?
+- Dynamic style কীভাবে কাজ করে?
+- getAttribute() কী?
+- setAttribute() কী?
+- innerText কী?
+- innerHTML কী?
 
 📝 Notes (বিস্তারিত তথ্য)
-🔹 Dynamic Style
 
- - JavaScript দিয়ে DOM element-এর CSS style পরিবর্তন করা যায়।
- - Syntax → element.style.property = "value"
- - Example → document.getElementById("box").style.backgroundColor = "red"
+Dynamic Style:
+- JavaScript দিয়ে DOM element-এর CSS style পরিবর্তন করা যায়।
+- Syntax → element.style.property = "value"
+- Example → document.getElementById("box").style.backgroundColor = "red"
 
-🔹 getAttribute()
+getAttribute():
+- নির্দিষ্ট attribute-এর মান পড়তে ব্যবহৃত হয়।
+- Syntax → element.getAttribute("attributeName")
+- Example → link.getAttribute("href")
 
- - নির্দিষ্ট attribute-এর মান পড়তে ব্যবহৃত হয়।
- - Syntax → element.getAttribute("attributeName")
- - Example → link.getAttribute("href") → link-এর URL বের করবে।
+setAttribute():
+- নির্দিষ্ট attribute-এর মান সেট/পরিবর্তন করতে ব্যবহৃত হয়।
+- Syntax → element.setAttribute("attributeName", "value")
+- Example → img.setAttribute("src", "newImage.png")
 
-🔹 setAttribute()
+innerText:
+- Element-এর visible text content রিটার্ন করে বা সেট করে।
+- CSS style respect করে (যেমন display:none হলে text পাওয়া যাবে না)।
+- Example → element.innerText = "Hello World"
 
- - নির্দিষ্ট attribute-এর মান সেট/পরিবর্তন করতে ব্যবহৃত হয়।
- - Syntax → element.setAttribute("attributeName", "value")
- - Example → img.setAttribute("src", "newImage.png")
+innerHTML:
+- Element-এর HTML content রিটার্ন করে বা সেট করে।
+- HTML tags সহ content manipulate করা যায়।
+- Example → element.innerHTML = "<b>Hello</b> World"
 
-🔹 innerText
-
- - Element-এর visible text content রিটার্ন করে বা সেট করে।
- - CSS style (যেমন display:none) respect করে।
- - Example → element.innerText = "Hello World"
-
-🔹 innerHTML
-
- - Element-এর HTML content রিটার্ন করে বা সেট করে।
- - HTML tags সহ content manipulate করা যায়।
- - Example → element.innerHTML = "<b>Hello</b> World"
-
-📌 Summary
- - Dynamic style → JavaScript দিয়ে CSS পরিবর্তন।
- - getAttribute() → attribute পড়া।
- - setAttribute() → attribute সেট/পরিবর্তন।
- - innerText → শুধু visible text content।
- - innerHTML → HTML content (tags সহ)।
+📌 Summary:
+- Dynamic style → JavaScript দিয়ে CSS পরিবর্তন।
+- getAttribute() → attribute পড়া।
+- setAttribute() → attribute সেট/পরিবর্তন।
+- innerText → শুধু visible text content।
+- innerHTML → HTML content (tags সহ)।
 
 
- class 6:
-6. Styling dom properties, add and remove css class using JS
-
+===============================
+Class 6: Styling DOM Properties, Add/Remove CSS Class
+===============================
 
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
- - DOM element-এর style property কীভাবে পরিবর্তন করা যায়?
- - CSS class add/remove করার উপায় কী?
- - Example code কীভাবে কাজ করে?
+- DOM element-এর style property কীভাবে পরিবর্তন করা যায়?
+- CSS class add/remove করার উপায় কী?
+- Example code কীভাবে কাজ করে?
 
 📝 Notes (বিস্তারিত তথ্য)
-🔹 Styling DOM Properties
 
- - JavaScript দিয়ে সরাসরি DOM element-এর style পরিবর্তন করা যায়।
- - Syntax → element.style.property = "value"
+Styling DOM Properties:
+- JavaScript দিয়ে সরাসরি DOM element-এর style পরিবর্তন করা যায়।
+- Syntax → element.style.property = "value"
+- Example:
+  section.style.border = '3px solid steelblue';
+  section.style.marginBottom = '5px';
+  section.style.borderRadius = '15px';
+  section.style.paddingLeft = '7px';
+  section.style.backgroundColor = 'lightgray';
 
-  - Example →
- js
- section.style.border = '3px solid steelblue';
- section.style.marginBottom = '5px';
- section.style.borderRadius = '15px';
- section.style.paddingLeft = '7px';
- section.style.backgroundColor = 'lightgray';
-  - এখানে প্রতিটি <section> element-এর border, margin, radius, padding, backgroundColor পরিবর্তন হচ্ছে।
+Add CSS Class:
+- element.classList.add("className")
+- Example → placesContainer.classList.add('text-center');
 
-🔹 Add CSS Class
+Remove CSS Class:
+- element.classList.remove("className")
+- Example → placesContainer.classList.remove('large-text');
 
- - element.classList.add("className") → নতুন CSS class যোগ করে।
+Benefit:
+- Inline style → immediate change।
+- Class add/remove → external CSS এর সাথে কাজ করে, maintainability বেশি।
 
-Example →
-js
- placesContainer.classList.add('text-center');
-  - এখানে placesContainer element-এ text-center class যোগ হচ্ছে।
-
-🔹 Remove CSS Class
-
- - element.classList.remove("className") → নির্দিষ্ট CSS class মুছে ফেলে।
-
-Example →
-  js  
-  placesContainer.classList.remove('large-text');
-   - এখানে placesContainer element থেকে large-text class সরানো হচ্ছে।
-
-🔹 Benefit
-
- - Inline style দিয়ে সরাসরি property পরিবর্তন করা যায়।
- - Class add/remove করে external CSS file থেকে style control করা যায় → maintainability বেশি।
-
-📌 Summary
-JavaScript দিয়ে DOM element-এর style property সরাসরি পরিবর্তন করা যায় (element.style.property)। এছাড়া classList.add() এবং classList.remove() ব্যবহার করে CSS class যোগ বা মুছে ফেলা যায়। Inline style immediate change দেয়, আর class manipulation external CSS-এর সাথে কাজ করে, যা বেশি scalable।
+📌 Summary:
+JavaScript দিয়ে style property পরিবর্তন করা যায়। classList.add() এবং classList.remove() ব্যবহার করে CSS class যোগ বা মুছে ফেলা যায়। Inline style দ্রুত কাজ করে, আর class manipulation external CSS এর সাথে scalable।
 
 
-
-class 7:
-7. NodeList, htmlcollection, parentNode, childnodes, createElement
-google seacrh: mdn er article --> dom node eta poro (docs porar ovvas vlo)
-
+===============================
+Class 7: NodeList, HTMLCollection, parentNode, childNodes, createElement
+===============================
 
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
-NodeList কী?
-
-HTMLCollection কী?
-
-parentNode কী?
-
-childNodes কী?
-
-createElement কীভাবে কাজ করে?
-
-DOM Node কী?
-
-Traversing DOM: querySelector, querySelectorAll
+- NodeList কী?
+- HTMLCollection কী?
+- parentNode কী?
+- childNodes কী?
+- createElement কীভাবে কাজ করে?
+- DOM Node কী?
+- Traversing DOM: querySelector, querySelectorAll
 
 📝 Notes (বিস্তারিত তথ্য)
-🔹 NodeList
 
-childNodes বা querySelectorAll() থেকে পাওয়া যায়।
+NodeList:
+- childNodes বা querySelectorAll() থেকে পাওয়া যায়।
+- Static list → DOM পরিবর্তন হলেও আপডেট হয় না।
+- Array-like, কিন্তু আসল array নয়।
+- Example → placesContainer2.childNodes → NodeList(5) [text, h1, text, ul, text]
 
-Static list → DOM পরিবর্তন হলেও আপডেট হয় না।
+HTMLCollection:
+- getElementsByTagName() বা getElementsByClassName() থেকে পাওয়া যায়।
+- Live list → DOM পরিবর্তন হলে সাথে সাথে আপডেট হয়।
+- Example → document.getElementsByClassName("important-places")
 
-Array-like, কিন্তু আসল array নয়।
+parentNode:
+- কোনো node-এর immediate parent node রিটার্ন করে।
+- Example → placesUL.parentNode → <section id="places-container">...</section>
 
-Example → placesContainer2.childNodes → NodeList(5) [text, h1, text, ul, text]
+childNodes:
+- কোনো node-এর সব child nodes (elements, text, comment) রিটার্ন করে।
+- Example → placesContainer2.childNodes[3].childNodes → NodeList(9)
 
-🔹 HTMLCollection
+createElement():
+- নতুন DOM element তৈরি করতে ব্যবহৃত হয়।
+- Syntax → document.createElement("tagName")
+- Example:
+  const li = document.createElement('li');
+  li.innerText = 'Brand New Places to go.';
+  placesUL.appendChild(li);
 
-getElementsByTagName() বা getElementsByClassName() থেকে পাওয়া যায়।
+DOM Node:
+- DOM হলো tree structure, যেখানে প্রতিটি অংশ একটি node।
+- Node types → Document, Element, Attribute, Text, Comment।
+- Example → <li class="important-places">Bandarbon</li> হলো একটি Element Node।
 
-Live list → DOM পরিবর্তন হলে সাথে সাথে আপডেট হয়।
+Traversing DOM:
+- querySelector() → CSS selector দিয়ে প্রথম matching element।
+- querySelectorAll() → CSS selector দিয়ে সব matching elements।
+- Example:
+  document.querySelector('#places-container ul')
+  document.querySelectorAll('.important-places')
 
-Example → document.getElementsByClassName("important-places")
-
-🔹 parentNode
-
-কোনো node-এর immediate parent node রিটার্ন করে।
-
-Example → placesUL.parentNode → <section id="places-container">...</section>
-
-🔹 childNodes
-
-কোনো node-এর সব child nodes (elements, text, comment) রিটার্ন করে।
-
-Example → placesContainer2.childNodes[3].childNodes → NodeList(9) [text, li, text, li, text, li, text, li, text]
-
-🔹 createElement()
-
-নতুন DOM element তৈরি করতে ব্যবহৃত হয়।
-
-Syntax → document.createElement("tagName")
-
-Example →
-
-js
-const li = document.createElement('li');
-li.innerText = 'Brand New Places to go.';
-placesUL.appendChild(li);
-🔹 DOM Node
-
-DOM হলো tree structure, যেখানে প্রতিটি অংশ একটি node।
-
-Node types → Document, Element, Attribute, Text, Comment।
-
-Example → <li class="important-places">Bandarbon</li> হলো একটি Element Node।
-
-🔹 Traversing DOM
-
-querySelector() → CSS selector দিয়ে প্রথম matching element রিটার্ন করে।
-
-Example → document.querySelector('#places-container ul') → প্রথম <ul> element।
-
-querySelectorAll() → CSS selector দিয়ে সব matching elements রিটার্ন করে।
-
-Example → document.querySelectorAll('.important-places') → সব <li> যাদের class important-places।
-
-📌 Summary
-NodeList → static, HTMLCollection → live।
-
-parentNode → immediate parent, childNodes → সব child nodes।
-
-createElement() → নতুন element তৈরি করে DOM-এ যোগ করা যায়।
-
-DOM Node হলো ওয়েবপেজের প্রতিটি অংশের মৌলিক representation।
-
-querySelector → প্রথম matching element, querySelectorAll → সব matching elements।
+📌 Summary:
+- NodeList → static, HTMLCollection → live।
+- parentNode → immediate parent।
+- childNodes → সব child nodes।
+- createElement() → নতুন element তৈরি করে DOM-এ যোগ করা যায়।
+- DOM Node → ওয়েবপেজের প্রতিটি অংশের representation।
+- querySelector → প্রথম matching element।
+- querySelectorAll → সব matching elements।
 
 
 
 
-class 8:
-8. Create HTML elements using Javascript and appendChild
+===============================
+Class 8: Create HTML Elements using JavaScript and appendChild
+===============================
 
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
- - কীভাবে নতুন HTML element তৈরি করা যায়?
- - appendChild() কীভাবে কাজ করে?
- - Full section add করার ধাপগুলো কী?
- - innerHTML দিয়ে element যোগ করার উপায় কী?
+- কীভাবে নতুন HTML element তৈরি করা যায়?
+- appendChild() কীভাবে কাজ করে?
+- Full section add করার ধাপগুলো কী?
+- innerHTML দিয়ে element যোগ করার উপায় কী?
 
 📝 Notes (বিস্তারিত তথ্য)
-🔹 নতুন element তৈরি করা
 
- - document.createElement("tagName") ব্যবহার করে নতুন element তৈরি করা যায়।
- - Example →
+নতুন element তৈরি করা:
+- document.createElement("tagName") ব্যবহার করে নতুন element তৈরি করা যায়।
+- Example:
+  const li = document.createElement('li');
+  li.innerText = 'pahartoli bon';
 
-js
-const li = document.createElement('li');
-li.innerText = 'pahartoli bon';
+appendChild():
+- কোনো parent node-এ নতুন child node যোগ করতে ব্যবহৃত হয়।
+- Example:
+  placesList.appendChild(li);
 
-🔹 appendChild()
+Full section add করার ধাপ:
+1. Parent container খুঁজে বের করা (getElementById)।
+   const mainContainer = document.getElementById('main-container');
 
- - কোনো parent node-এ নতুন child node যোগ করতে ব্যবহৃত হয়।
- - Example →
+2. নতুন section, h1 তৈরি করা।
+   const section = document.createElement('section');
+   const h1 = document.createElement('h1');
+   h1.innerText = 'My Food List';
+   section.appendChild(h1);
 
-js
-placesList.appendChild(li);
-এখানে placesList-এর মধ্যে নতুন <li> যোগ হচ্ছে।
-
-🔹 Full section add করার ধাপ
-
-1. Where to add → parent container খুঁজে বের করা (getElementById)।
-
-js
-const mainContainer = document.getElementById('main-container');
-
-
-2. What to add → নতুন section, h1, ul, li তৈরি করা।
-
-js
-const section = document.createElement('section');
-const h1 = document.createElement('h1');
-h1.innerText = 'My Food List';
-section.appendChild(h1);
-
-
-3. Add children → ul → li elements append করা।
-
-js
-const ul = document.createElement('ul');
-const li1 = document.createElement('li');
-li1.innerText = 'biryani';
-ul.appendChild(li1);
-
+3. ul → li elements তৈরি ও append করা।
+   const ul = document.createElement('ul');
+   const li1 = document.createElement('li');
+   li1.innerText = 'biryani';
+   ul.appendChild(li1);
 
 4. Final append → section → mainContainer এ যোগ করা।
+   section.appendChild(ul);
+   mainContainer.appendChild(section);
 
-js
-section.appendChild(ul);
-mainContainer.appendChild(section);
-🔹 innerHTML দিয়ে element যোগ করা
+innerHTML দিয়ে element যোগ করা:
+- সরাসরি HTML string ব্যবহার করে element-এর ভিতরে content বসানো যায়।
+- Example:
+  const sectionDress = document.createElement('section');
+  sectionDress.innerHTML = `
+      <h1>My Dress section</h1>
+      <ul>
+          <li>t-shirt</li>
+          <li>lungi</li>
+          <li>genji</li>
+      </ul>
+  `;
+  mainContainer.appendChild(sectionDress);
 
- - সরাসরি HTML string ব্যবহার করে element-এর ভিতরে content বসানো যায়।
- - Example →
- - js
-const sectionDress = document.createElement('section');
-sectionDress.innerHTML = `
-    <h1>My Dress section</h1>
-    <ul>
-        <li>t-shirt</li>
-        <li>lungi</li>
-        <li>genji</li>
-    </ul>
-`;
-mainContainer.appendChild(sectionDress);
-📌 Summary
- - createElement() দিয়ে নতুন element তৈরি হয়।
- - appendChild() parent node-এ child যোগ করে।
- - Step-by-step করে পুরো section তৈরি করা যায় (h1, ul, li)।
- - innerHTML ব্যবহার করলে shortcut আকারে HTML structure বসানো যায়।
+📌 Summary:
+- createElement() → নতুন element তৈরি।
+- appendChild() → parent node-এ child যোগ।
+- Step-by-step করে পুরো section তৈরি করা যায়।
+- innerHTML → shortcut আকারে HTML structure বসানো যায়।
 
 
-
-
-module Summary
+===============================
+Module Summary
+===============================
 
 🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
- - getElementsByTagName() কী করে?
- - getElementsByClassName() কী করে?
- - getElementById() কীভাবে কাজ করে?
- - querySelector() ও querySelectorAll() এর ব্যবহার কী?
- - কীভাবে নতুন element তৈরি ও append করা যায়?
+- getElementsByTagName() কী করে?
+- getElementsByClassName() কী করে?
+- getElementById() কীভাবে কাজ করে?
+- querySelector() ও querySelectorAll() এর ব্যবহার কী?
+- কীভাবে নতুন element তৈরি ও append করা যায়?
 
 📝 Notes (বিস্তারিত তথ্য)
-🔹 getElementsByTagName()
 
-নির্দিষ্ট tag name অনুযায়ী সব elements খুঁজে বের করে।
+getElementsByTagName():
+- নির্দিষ্ট tag name অনুযায়ী সব elements খুঁজে বের করে।
+- Return type → HTMLCollection (live)।
+- Example:
+  const allLi = document.getElementsByTagName('li');
+  console.log(allLi);
 
-Return type → HTMLCollection (live)।
+getElementsByClassName():
+- নির্দিষ্ট class name অনুযায়ী সব elements খুঁজে বের করে।
+- Return type → HTMLCollection (live)।
+- Example:
+  const allTitles = document.getElementsByClassName('section-title');
+  console.log(allTitles);
 
-Example →
+getElementById():
+- নির্দিষ্ট unique id অনুযায়ী element খুঁজে বের করে।
+- Return type → single element।
+- Example:
+  const secondSection = document.getElementById('second-section');
+  secondSection.style.color = 'white';
+  secondSection.style.backgroundColor = 'tomato';
 
-js
-const allLi = document.getElementsByTagName('li');
-console.log(allLi); // HTMLCollection(12)
-🔹 getElementsByClassName()
+querySelector() / querySelectorAll():
+- CSS selector ব্যবহার করে element খুঁজে বের করে।
+- querySelector() → প্রথম matching element।
+- querySelectorAll() → সব matching elements (NodeList, static)।
 
-নির্দিষ্ট class name অনুযায়ী সব elements খুঁজে বের করে।
+createElement() + appendChild():
+- নতুন element তৈরি করে DOM-এ যোগ করা যায়।
+- Example:
+  const li = document.createElement('li');
+  li.innerText = 'My dynamic item';
+  secondList.appendChild(li);
 
-Return type → HTMLCollection (live)।
+innerHTML দিয়ে dynamic section যোগ করা:
+- সরাসরি HTML string ব্যবহার করে element-এর ভিতরে content বসানো যায়।
+- Example:
+  const section = document.createElement('section');
+  section.innerHTML = `
+      <h1>My dynamic section</h1>
+      <p>Extra text added inside paragraph</p>
+      <ul>
+          <li>List item-1</li>
+          <li>List item-2</li>
+          <li>List item-3</li>
+          <li>List item-4</li>
+      </ul>
+  `;
+  main.appendChild(section);
 
-Example →
-
-js
-const allTitles = document.getElementsByClassName('section-title');
-console.log(allTitles); // HTMLCollection(3)
-🔹 getElementById()
-
-নির্দিষ্ট unique id অনুযায়ী element খুঁজে বের করে।
-
-Return type → single element।
-
-Example →
-
-js
-const secondSection = document.getElementById('second-section');
-secondSection.style.color = 'white';
-secondSection.style.backgroundColor = 'tomato';
-🔹 querySelector() / querySelectorAll()
-
-CSS selector ব্যবহার করে element খুঁজে বের করে।
-
-querySelector() → প্রথম matching element।
-
-querySelectorAll() → সব matching elements (NodeList, static)।
-
-🔹 createElement() + appendChild()
-
-নতুন element তৈরি করে DOM-এ যোগ করা যায়।
-
-Example →
-
-js
-const li = document.createElement('li');
-li.innerText = 'My dynamic item';
-secondList.appendChild(li);
-🔹 innerHTML দিয়ে dynamic section যোগ করা
-
-সরাসরি HTML string ব্যবহার করে element-এর ভিতরে content বসানো যায়।
-
-Example →
-
-js
-const section = document.createElement('section');
-section.innerHTML = `
-    <h1>My dynamic section</h1>
-    <p>Extra text added inside paragraph</p>
-    <ul>
-        <li>List item-1</li>
-        <li>List item-2</li>
-        <li>List item-3</li>
-        <li>List item-4</li>
-    </ul>
-`;
-main.appendChild(section);
-📌 Summary
- - HTMLCollection → live list (getElementsByTagName, getElementsByClassName)।
- - NodeList → static list (querySelectorAll)।
- - getElementById → unique element access।
- - querySelector/querySelectorAll → CSS selector দিয়ে DOM traversing।
- - createElement + appendChild → নতুন element তৈরি ও DOM-এ যোগ করা।
- - innerHTML → shortcut আকারে HTML structure বসানো যায়।
+📌 Summary:
+- HTMLCollection → live list (getElementsByTagName, getElementsByClassName)।
+- NodeList → static list (querySelectorAll)।
+- getElementById → unique element access।
+- querySelector/querySelectorAll → CSS selector দিয়ে DOM traversing।
+- createElement + appendChild → নতুন element তৈরি ও DOM-এ যোগ করা।
+- innerHTML → shortcut আকারে HTML structure বসানো যায়।
