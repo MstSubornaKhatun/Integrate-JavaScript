@@ -1,0 +1,439 @@
+===============================
+0. Basic of DOM (Intro Class)
+===============================
+
+What is DOM?
+DOM হলো document এর জন্য একটি programming interface.
+
+যখন একটি webpage browser এ load হয় তখন HTML document টা DOM tree তে convert হয়।
+DOM এর মাধ্যমে JavaScript খুব সহজে HTML elements manipulate করতে পারে।
+
+JavaScript DOM দিয়ে কী কী করতে পারে?
+- HTML elements পরিবর্তন করতে পারে
+- HTML elements এর CSS style পরিবর্তন করতে পারে
+- নতুন HTML element তৈরি করতে পারে
+- HTML elements remove করতে পারে
+- HTML attribute পরিবর্তন করতে পারে
+- নতুন HTML events তৈরি করতে পারে
+
+DOM এর full meaning:
+D = Document → file/document
+O = Object → elements (html, head, body, title, text)
+M = Model → layout structure (tree model)
+
+HTML থেকে DOM Tree কিভাবে হয়?
+Document
+ └── html
+      └── body
+           ├── h1
+           │    └── "Hello"
+           └── p
+                └── "World"
+
+Node কী?
+Node হলো DOM Tree এর প্রতিটি অংশের নাম।
+Document
+ └── html
+      └── body
+           └── ul (Element Node, id="places")
+                ├── li (Element Node)
+                │    └── "Dhaka" (Text Node)
+                └── li (Element Node)
+                     └── "Khulna" (Text Node)
+
+ParentNode এবং ChildNode:
+- Root node ছাড়া প্রতিটি node এর একটি parent থাকে।
+- একটি parent node এর একাধিক child node থাকতে পারে।
+- একই parent এর child node গুলোকে sibling বলা হয়।
+
+DOM Methods:
+1. getElementById → Id দিয়ে element access করা যায়।
+   Example:
+   const headingOne = document.getElementById("headingOne");
+   headingOne.style.color = "red";
+
+2. getElementsByClassName → Class name দিয়ে একাধিক elements access করা যায়।
+   Example:
+   const collections = document.getElementsByClassName("paragraph");
+   collections[0].style.backgroundColor = "yellow";
+
+3. createElement + appendChild → নতুন element তৈরি করে parent node এ যোগ করা যায়।
+   Example:
+   const myUl = document.getElementById("my_ul");
+   const myNewList = document.createElement("li");
+   myNewList.innerText = "I am three";
+   myUl.appendChild(myNewList);
+
+===============================
+1. Events in Web & JS Event Handling
+===============================
+
+Event কী?
+- Event হলো কোনো action বা ঘটনা যা ওয়েবপেজে ঘটে।
+- উদাহরণ: user interaction (click, input, hover), browser action (load, resize)।
+- DOM event system ব্যবহার করে এগুলো detect ও handle করা যায়।
+
+Web এ Event এর ধরন:
+1. Mouse Events → click, dblclick, mouseover, mouseout, mousemove
+2. Keyboard Events → keydown, keyup, keypress
+3. Form Events → submit, change, focus, blur
+4. Window/Document Events → load, resize, scroll
+5. Clipboard Events → copy, cut, paste
+6. Touch Events (Mobile) → touchstart, touchmove, touchend
+
+JavaScript এ Event Handling এর 3টি প্রধান উপায়:
+1. Inline Event Handler (HTML attribute)
+   Example: <button onclick="alert('Clicked!')">Click Me</button>
+
+2. DOM Property Method
+   Example:
+   const btn = document.getElementById("myBtn");
+   btn.onclick = function() {
+     alert("Button clicked!");
+   };
+
+3. addEventListener() Method (Best Practice)
+   Example:
+   const btn = document.getElementById("myBtn");
+   btn.addEventListener("click", function() {
+     alert("Button clicked via addEventListener!");
+   });
+
+Summary:
+- Event হলো ওয়েবপেজে ঘটে যাওয়া action বা ঘটনা।
+- Event এর ধরন → Mouse, Keyboard, Form, Window, Clipboard, Touch।
+- Event Handling এর 3টি উপায় → Inline, Property, addEventListener()।
+
+===============================
+2. Add onclick Handler (Directly or via JS)
+===============================
+
+Option 1: Inline Event Handler (HTML attribute)
+Example:
+<button onclick="console.log(7)">Click me</button>
+<button onclick="console.log(67)">Another button</button>
+<button onclick="console.log('I am clicked')">Third Button</button>
+সুবিধা → সহজ ও দ্রুত।
+অসুবিধা → HTML ও JS মিশে যায়, maintainability কমে।
+
+Option 2: Function Call via Inline Handler
+Example:
+function makeYellow() {
+  document.body.style.backgroundColor = "yellow";
+}
+function makeRed() {
+  document.body.style.backgroundColor = "red";
+}
+সুবিধা → Reusable function, multiple জায়গায় ব্যবহার করা যায়।
+
+Option 3: Get Element by ID & Set onclick (Anonymous Function)
+Example:
+const btnMakeBlue = document.getElementById("btn-make-blue");
+btnMakeBlue.onclick = function makeBlue() {
+  document.body.style.backgroundColor = "blue";
+};
+সুবিধা → JS আলাদা থাকে, HTML clean থাকে।
+
+Option 4: Assign Function Reference
+Example:
+const btnMakePurple = document.getElementById("btn-make-purple");
+btnMakePurple.onclick = makePurple;
+
+function makePurple() {
+  document.body.style.backgroundColor = "purple";
+}
+সুবিধা → Function reusable, code পরিষ্কার।
+
+Summary:
+- Option 1 → Inline handler (HTML attribute)
+- Option 2 → Inline handler + function call
+- Option 3 → JS দিয়ে element খুঁজে নিয়ে onclick property সেট করা
+- Option 4 → Function reference দিয়ে onclick assign করা
+- Inline handler সহজ, কিন্তু maintainability কম। Property method clean ও reusable।
+
+
+
+class-3
+Event Handling in JavaScript (Module Notes)
+
+Cue (Questions):
+- HTML element-এ event add করার বিভিন্ন উপায় কী?
+- কোনটা best practice এবং কেন?
+- Common types of JS events কী কী?
+
+Notes:
+1. Inline Event Handler (HTML attribute)
+   - সরাসরি HTML element-এর মধ্যে event লেখা হয়।
+   - Example: <button onclick="alert('Clicked!')">Click Me</button>
+   - অসুবিধা: HTML ও JS মিশে যায়, maintainability কমে।
+
+2. DOM Property Method
+   - JavaScript দিয়ে element খুঁজে নিয়ে property (onclick, onchange) সেট করা হয়।
+   - Example:
+     const btn = document.getElementById('myBtn');
+     btn.onclick = function() {
+       alert('Button clicked!');
+     };
+   - অসুবিধা: একবারে শুধু একটি handler assign করা যায় (overwrite হয়)।
+
+3. addEventListener() Method (Best Practice)
+   - Modern ও flexible উপায়।
+   - Syntax: element.addEventListener("event", callback)
+   - Example:
+     const btn = document.getElementById('myBtn');
+     btn.addEventListener('click', function() {
+       alert('Button clicked via addEventListener!');
+     });
+   - সুবিধা:
+     - একাধিক handler attach করা যায়।
+     - Event bubbling/capturing control করা যায়।
+     - HTML ও JS আলাদা থাকে, clean code।
+     - Modern browsers support করে।
+
+Why addEventListener is Best Practice:
+- Inline handler → messy, hard to maintain।
+- Property method → overwrite problem।
+- addEventListener → reusable, scalable, multiple handlers, modern standard।
+
+Common Types of JS Events:
+- Mouse Events → click, dblclick, mouseover, mouseout, mousemove
+- Keyboard Events → keydown, keyup, keypress
+- Form Events → submit, change, focus, blur
+- Window/Document Events → load, resize, scroll
+
+Summary:
+- Event add করার ৩টা উপায় → Inline handler, DOM property method, addEventListener()
+- Best practice → addEventListener()
+- Common events → Mouse, Keyboard, Form, Window
+
+
+
+
+class-4:
+4. Integrate Event innerText and Text update by Event Event Handlers
+
+1. dom theke element nite pari.
+2. innerText get 
+3.innerText Set
+4.  Event Handler 
+
+===============================
+Event Handlers & Anonymous Functions
+===============================
+
+Cue (Questions):
+- Event দিয়ে innerText কিভাবে update করা যায়?
+- Anonymous Function কী?
+- নামহীন / নামবিহীন function এর ব্যবহার কী?
+
+Notes:
+
+1. Event দিয়ে innerText update
+   - Event handler ব্যবহার করে HTML element-এর text পরিবর্তন করা যায়।
+   - Example:
+     <button id="btn-update">Click Me</button>
+     <p id="text">Old Text</p>
+
+     const btn = document.getElementById("btn-update");
+     const para = document.getElementById("text");
+
+     btn.addEventListener("click", function() {
+       para.innerText = "Text updated by Event!";
+     });
+
+   - এখানে button এ click করলে paragraph-এর innerText পরিবর্তন হবে।
+
+2. Anonymous Function কী?
+   - Anonymous function হলো এমন function যার কোনো নাম থাকে না।
+   - সাধারণত event handler বা callback হিসেবে ব্যবহার করা হয়।
+   - Example:
+     document.getElementById("btn").onclick = function() {
+       console.log("Button clicked!");
+     };
+
+   - এখানে function-এর কোনো নাম নেই, কিন্তু কাজ করছে।
+
+3. নামহীন / নামবিহীন function এর ব্যবহার
+   - Temporary কাজের জন্য ব্যবহার হয়।
+   - Event handler, callback, setTimeout/setInterval এ বেশি ব্যবহৃত হয়।
+   - Example:
+     setTimeout(function() {
+       console.log("Executed after 2 seconds");
+     }, 2000);
+
+Summary:
+- Event handler দিয়ে innerText update করা যায় → element.innerText = "new text"
+- Anonymous function হলো নামহীন function, সাধারণত event handler বা callback হিসেবে ব্যবহৃত হয়।
+- নামহীন function temporary কাজের জন্য উপযোগী, reusable function এর জন্য named function ভালো।
+
+
+
+
+class-5:
+5. Create a comment box and display comment
+
+
+
+===============================
+5. Create a Comment Box and Display Comment
+===============================
+
+Cue (Questions):
+- কিভাবে একটি comment box তৈরি করে নতুন comment দেখানো যায়?
+- কখন .value ব্যবহার করবো আর কখন innerText ব্যবহার করবো?
+
+Notes:
+
+Step 1: Event Handler সেট করা
+- Button এ click event add করতে হবে।
+- Example:
+  document.getElementById('btn-post-comment')
+    .addEventListener('click', function() {
+      // code here
+    });
+
+Step 2: Text Area থেকে লেখা নেওয়া
+- Text area এর ভিতরে user যা লিখেছে তা নিতে হবে।
+- এজন্য .value ব্যবহার করা হয়।
+- Example:
+  const commentTextBox = document.getElementById('comment-text-box');
+  const newComment = commentTextBox.value;
+
+Step 3: Parent Node খুঁজে বের করা
+- যেখানে নতুন comment publish হবে সেই parent container খুঁজে বের করতে হবে।
+- Example:
+  const commentContainer = document.getElementById('comment-container');
+
+Step 4: নতুন p element তৈরি করা
+- document.createElement('p') দিয়ে নতুন paragraph তৈরি করতে হবে।
+- CSS class যোগ করতে হবে।
+- Example:
+  const commentElement = document.createElement('p');
+  commentElement.classList.add('comment');
+  commentElement.innerText = newComment;
+
+Step 5: Parent Node এ append করা
+- নতুন তৈরি করা p element কে parent container এ যোগ করতে হবে।
+- Example:
+  commentContainer.appendChild(commentElement);
+
+Step 6: Text Area পরিষ্কার করা
+- নতুন comment যোগ করার পর textarea খালি করে দিতে হবে।
+- Example:
+  commentTextBox.value = '';
+
+===============================
+.value বনাম innerText
+===============================
+
+- .value → form elements (input, textarea) এর জন্য ব্যবহার হয়।
+  এটি user input বা লেখা পড়তে এবং reset করতে কাজে লাগে।
+  Example: commentTextBox.value
+
+- innerText → সাধারণ HTML element (p, div, h1 ইত্যাদি) এর text content পরিবর্তন করতে ব্যবহার হয়।
+  Example: commentElement.innerText = newComment;
+
+Summary:
+- Text area থেকে লেখা নেওয়ার জন্য .value ব্যবহার করতে হবে।
+- নতুন তৈরি করা element এ লেখা বসানোর জন্য innerText ব্যবহার করতে হবে।
+- এইভাবে comment box তৈরি করে নতুন comment display করা যায়।
+
+
+
+class-6
+6. Explore more event type and Simple github like delete confirmation button
+
+
+===============================
+Explore More Event Types
+===============================
+
+Cue (Questions):
+- JavaScript এ আর কী কী event type আছে?
+- Mouse, Keyboard, Form event কিভাবে কাজ করে?
+- Github এর মতো delete confirmation কিভাবে বানানো যায়?
+
+Notes:
+
+1. Mouse Events
+   - mouseenter → element এর উপর mouse আসলে trigger হয়।
+   - mousemove → element এর উপর mouse move করলে trigger হয়।
+   - mouseout → element এর উপর থেকে mouse চলে গেলে trigger হয়।
+   Example:
+     document.getElementById('btn-mouse')
+       .addEventListener('mouseout', function() {
+         console.log('event trigger');
+       });
+
+2. Focus & Blur Events
+   - focus → input box এ cursor গেলে trigger হয়।
+   - blur → input box থেকে cursor বের হলে trigger হয়।
+   Example:
+     document.getElementById('user-name')
+       .addEventListener('focus', function() {
+         console.log('user about to write name');
+       });
+
+     document.getElementById('user-name')
+       .addEventListener('blur', function() {
+         console.log('user done with name');
+       });
+
+3. Keyboard Events
+   - keydown → key চাপা মাত্র trigger হয়।
+   - keyup → key ছেড়ে দিলে trigger হয়।
+   - event.target.value → input box এ user যা লিখছে তা পাওয়া যায়।
+   Example:
+     document.getElementById('user-name')
+       .addEventListener('keyup', function(event) {
+         console.log('typing', event.target.value);
+       });
+
+===============================
+Simple Github-like Delete Confirmation
+===============================
+
+Steps:
+1. Input box এ user কে "delete" লিখতে হবে।
+2. যদি ঠিক "delete" লেখা হয়:
+   - Delete button enable হবে।
+   - Secret info hide হয়ে যাবে।
+3. অন্য কিছু লিখলে:
+   - Delete button আবার disable হয়ে যাবে।
+
+Example Code:
+document.getElementById('input-delete')
+  .addEventListener('keyup', function(event) {
+    const text = event.target.value;
+    const btnDelete = document.getElementById('btn-delete');
+
+    if(text === 'delete') {
+      btnDelete.removeAttribute('disabled');
+      const secretTag = document.getElementById('secret-info');
+      secretTag.style.display = 'none';
+    }
+    else {
+      btnDelete.setAttribute('disabled', true);
+    }
+  });
+
+===============================
+Summary
+===============================
+- Mouse events → mouseenter, mousemove, mouseout
+- Focus/Blur events → input এ cursor আসা/যাওয়া
+- Keyboard events → keydown, keyup, event.target.value দিয়ে লেখা পাওয়া যায়
+- Github delete confirmation → input এ "delete" লিখলে button enable হয় এবং secret info hide হয়
+
+
+
+class-7
+7. (semi-advanced) Event bubble and Stop propagating
+
+
+
+
+
+
+
+

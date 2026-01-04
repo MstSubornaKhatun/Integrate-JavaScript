@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Events</title>
+</head>
+<body>
+    <h1>DOM Events</h1>
+    <!-- option 1 for event handler -->
+    <button onclick="console.log(7)">Click me</button>
+    <button onclick="console.log(67)">Another button</button>
+    <button id="" onclick="console.log('I am clicked')">Third Button</button>
+    <br>
+
+    <!-- option 2 for click event handler -->
+    <button onclick="makeYellow()">Make Yellow</button>
+    <button onclick="makeRed()">Make Red</button>
+
+    <!-- option 3 -->
+    <button id="btn-make-blue">Make Blue</button>
+    <button id="btn-make-purple">Make purple</button>
+
+
+    <!-- option 4: addEventListener -->
+    <button id="btn-make-green">Make Green</button>
+    <button id="btn-make-gold">Make Golden</button>
+    <script>
+        // document.getElementById().addEventListener('event type', handler) 
+        //addEventListener===> event k listen korbo --> ('kon event ke korbo',r ke listen korbe)
+        document.getElementById('btn-make-green').addEventListener('click', 
+            function makeGreen(){
+                // console.log(777)
+                document.body.style.backgroundColor = 'green'
+            }
+        )
+
+        document.getElementById('btn-make-gold')
+        .addEventListener('click', function(){
+            document.body.style.backgroundColor = 'goldenrod'
+        })    
+       
+    </script>
+
+
+
+    <script src="js/event.js"></script>
+</body>
+</html>
