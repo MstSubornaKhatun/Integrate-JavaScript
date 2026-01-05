@@ -44,13 +44,13 @@
                 <img class="w-8 mx-auto" src="./assets/purse1.png" alt="">
                 <h3>Pay Bill</h3>
             </div>
-            <div class="box rounded-sm cursor-pointer border p-4 text-center">
+            <div id="transaction-box" class="box rounded-sm cursor-pointer border p-4 text-center">
                 <img class="w-8 mx-auto" src="./assets/wallet1.png" alt="">
                 <h3>Transactions</h3>
             </div>
 
         </div>
-
+<!-- addMoney -->
         <section id="addMoney">
             <h2>Add Money</h2>
             <div class="bg-gray-200">
@@ -60,7 +60,7 @@
       <div class="card-body">
         <fieldset class="fieldset">
           <legend class="label">Select A Bank</legend>
-          <select class="select">
+          <select id="allbank" class="select">
   <option disabled selected>Select A Bank</option>
   <option value="bKash">bKash</option>
   <option value="Nagad">Nagad</option>
@@ -68,7 +68,7 @@
 </select>
           
           <label class="label">Bank Account Number</label>
-          <input type="number" placeholder="Enter 11 digit Account Number" class="input" />
+          <input id="account" value="01345678909" type="number" placeholder="Enter 11 digit Account Number" class="input" />
 
           
           <label class="label">Amount to Add</label>
@@ -89,6 +89,8 @@
 
         </section>
 
+
+        <!-- cashOut -->
         <section id="cashOutMoney">
             <h2>Cash Out</h2>
                         <div class="bg-gray-200">
@@ -119,14 +121,38 @@
 </div>
 
         </section>
+
+        <!-- transactions -->
+         <section id="transaction-history">
+            <h2 class="text-3xl font-bold text-red-400 text-center p-3">Transactions History</h2>
+
+            <div id="transaction-container">
+
+            </div>
+
+         </section>
+
+
+
+
+
     </section>
 </header>
 
     </section>
 
-    <script src="script/recap.js"></script>
+
+
+    <!-- utilities er modhe function declare kore kom code likhei m27 er kaj gulo m28 a korte pare -->
+    <script src="utilities/toggle.js"></script>
+    <script src="utilities/utilities.js"></script>
+    <script src="script2/addmoney.js"></script>
+    <script src="script2/cashout.js"></script>
+    <script src="script2/transactionHistory.js"></script>
+    <!-- <script src="script/recap.js"></script>
     <script src="script/toggle.js"></script>
-    <script src="script/cashout.js"></script>
+    <script src="script/cashout.js"></script> -->
+
     <!-- <script src="script/addMoney.js"></script> -->
 </body>
 </html>

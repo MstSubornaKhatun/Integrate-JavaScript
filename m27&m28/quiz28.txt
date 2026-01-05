@@ -1,0 +1,201 @@
+Question 01
+
+Which property is used to change the text inside a DOM element?
+
+
+A
+innerHTMLText
+
+-->B
+innerText
+
+correct-green-icon
+C
+textNode
+
+D
+setText
+
+Your answer is correct!
+
+Question 02
+
+Which method is used to create a new element in the DOM?
+
+
+A
+createElementItem
+
+-->B
+createElement
+
+correct-green-icon
+C
+appendChild
+
+D
+cloneNode
+
+Your answer is correct!
+
+Question 03
+
+Which method is used to select an element by its ID in the DOM?
+
+
+A
+getElementByClassName
+
+B
+querySelectorById
+
+-->C
+getElementById
+
+correct-green-icon
+D
+getElementsByTagName
+
+Your answer is correct!
+
+Question 04
+
+Which method is used to add a newly created element to the DOM?
+
+
+-->A
+appendChild
+
+correct-green-icon
+B
+insertNodeElement
+
+C
+createElement
+
+D
+setChild
+
+Your answer is correct!
+
+Question 05
+
+Which method is used to remove an element from the DOM?
+
+
+A
+deleteElement
+
+-->B
+removeChild
+
+correct-green-icon
+C
+removeElement
+
+D
+destroyNode
+
+Your answer is correct!
+
+Question 06
+
+Which method is used to attach an event handler to a DOM element?
+
+
+-->A
+addEventListener
+
+correct-green-icon
+B
+onClick
+
+C
+setEventListener
+
+D
+attachEvent
+
+Your answer is correct!
+
+Question 07
+
+Which method is used to add a CSS class to an element?
+
+
+A
+className
+
+B
+setClass
+
+C
+addClass
+
+-->D
+classList.add
+
+correct-green-icon
+Your answer is correct!
+
+Question 08
+
+Which method is used to change the attribute of a DOM element?
+
+
+-->A
+setAttribute
+
+correct-green-icon
+B
+changeAttr
+
+C
+setAttr
+
+D
+setAttributeValue
+
+Your answer is correct!
+
+Question 09
+
+Which method allows selecting elements using CSS selectors?
+
+
+A
+getElementBySelector
+
+correct-green-icon
+-->B
+querySelector
+
+C
+selectCSS
+
+D
+getSelector
+
+Your answer is wrong!
+Correct answer: (B)
+
+Question 10
+
+What will be the data type of “count”?
+
+const count = “10” + 5;
+
+A
+number
+
+-->B
+string
+
+correct-green-icon
+C
+boolean
+
+D
+integer
+
+Your answer is correct!
