@@ -9,7 +9,7 @@ getElementById()
 B
 querySelector()
 
-C
+-->C
 Both A and B
 
 correct-green-icon
@@ -26,7 +26,7 @@ Which of the following is true about the childNodes property in the DOM?
 A
 It returns only element nodes.
 
-B
+-->B
 It returns all child nodes, including text and comment nodes.
 
 correct-green-icon
@@ -46,7 +46,7 @@ To prevent the default action of submitting a form when a button is clicked, whi
 A
 stopPropagation()
 
-B
+-->B
 preventDefault()
 
 correct-green-icon
@@ -66,7 +66,7 @@ What is the main difference between appendChild() and append()?
 A
 appendChild() can add text nodes, while append() cannot
 
-B
+-->B
 append() allows adding multiple elements or text nodes, while appendChild() only adds one node
 
 correct-green-icon
@@ -89,7 +89,7 @@ document.getElementById("container").innerHTML += "<p>World</p>";
 A
 Only "Hello" will be displayed in the container.
 
-B
+-->B
 Both "Hello" and "World" will be displayed in separate <p> elements.
 
 correct-green-icon
@@ -108,7 +108,7 @@ What is the result of the following JavaScript code?
 let container = document.getElementById('container');
 container.innerHTML = '';
 
-A
+-->A
 Removes all content inside the <div> element with id 'container'
 
 correct-green-icon
@@ -128,7 +128,7 @@ Question 07
 Which property of the event object gives you the element that triggered the event?
 
 
-A
+-->A
 event.target
 
 correct-green-icon
@@ -154,7 +154,7 @@ console.log(nameOfOrganization);
 A
 Programming Hero
 
-B
+-->B
 undefined
 
 correct-green-icon
@@ -174,7 +174,7 @@ What happens if you try to remove a class from an element that doesn't have that
 A
 An error is thrown
 
-B
+-->B
 The class is ignored, and no changes are made
 
 correct-green-icon
@@ -191,7 +191,7 @@ Question 10
 What happens if you call stopImmediatePropagation() on an event object?
 
 
-A
+-->A
 It stops the current event listener and prevents any other listeners for the same event from being called
 
 correct-green-icon
