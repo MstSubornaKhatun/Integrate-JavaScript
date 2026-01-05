@@ -1,0 +1,151 @@
+1. What we learned so far in this milestone
+
+===============================
+Milestone Summary (What We Learned So Far)
+===============================
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+- JS কীভাবে HTML এবং CSS এর সাথে কাজ করে?
+- DOM element কীভাবে পাওয়া যায়?
+- DOM element dynamically add করার উপায় কী?
+- DOM element থেকে value get/set করার উপায় কী?
+- Event handler কীভাবে কাজ করে?
+- Function দিয়ে duplicate code কমানো যায় কীভাবে?
+- Event bubble এবং event delegate কী?
+
+📝 Notes (বিস্তারিত তথ্য)
+
+1. Using JS with HTML and CSS
+- JavaScript → HTML structure manipulate করে।
+- JavaScript → CSS style dynamically পরিবর্তন করে।
+
+2. Get element or elements from DOM
+- document.getElementById("idName") → নির্দিষ্ট id এর element।
+- document.getElementsByClassName("className") → নির্দিষ্ট class এর সব elements।
+- document.querySelector("selector") → প্রথম matching element।
+- document.querySelectorAll("selector") → সব matching elements (NodeList)।
+
+3. Dynamically Add Element
+- document.createElement("tagName") → নতুন element তৈরি।
+- element.innerHTML = "value" → content সেট করা।
+
+4. Get and Set Value
+- innerText → visible text content (h1, p, div, span ইত্যাদি)।
+- value → input, textarea এর মান।
+
+5. Event Listener (Event Handler)
+- Common events → click, focus, blur, onchange, keyup।
+- Inline handler → onclick="myHandler()"
+- Modern → element.addEventListener("event", callback)
+
+6. Use Function
+- Function ব্যবহার করে duplicate code কমানো যায়।
+- Example:
+  function add(a, b) { return a + b; }
+
+7. Event Bubble and Event Delegate
+- Event bubble → child থেকে parent পর্যন্ত propagate হয়।
+- Event delegate → parent এ listener বসিয়ে child এর event handle করা যায়।
+
+📌 Example Queries:
+document.querySelectorAll('.users-container .disable h3')
+→ users-container এর মধ্যে disable class এর h3 elements।
+
+document.querySelectorAll('.my-users li')
+→ my-users class এর মধ্যে সব li elements।
+
+📌 Summary
+- JS দিয়ে HTML + CSS manipulate করা যায়।
+- DOM থেকে element access করার ৪টি প্রধান উপায় → getElementById, getElementsByClassName, querySelector, querySelectorAll।
+- createElement + innerHTML দিয়ে নতুন element যোগ করা যায়।
+- innerText এবং value দিয়ে content get/set করা যায়।
+- Event listener দিয়ে user interaction handle করা যায়।
+- Function duplicate code কমায়।
+- Event bubble → propagation, Event delegate → efficient event handling।
+
+
+
+===============================
+Advanced JS Concepts (29_5-2)
+===============================
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+- typeof দিয়ে validation কীভাবে কাজ করে?
+- Array.isArray() কীভাবে কাজ করে?
+- isNaN কী?
+- Date object দিয়ে comparison কীভাবে করা যায়?
+- Error types কী কী?
+- try-catch-finally কীভাবে কাজ করে?
+
+📝 Notes (বিস্তারিত তথ্য)
+
+1. Validation with typeof
+- typeof দিয়ে data type চেক করা যায়।
+- Example:
+  const number = 23;
+  if(typeof number === 'number'){
+    console.log('value is a number');
+  }
+
+2. Array.isArray()
+- কোনো variable array কিনা তা চেক করে।
+- Example:
+  Array.isArray([3, 12, 78]) → true
+  Array.isArray({name: 'Rafsan'}) → false
+
+3. isNaN
+- isNaN() → কোনো value number নয় কিনা তা চেক করে।
+- Example:
+  isNaN("hello") → true
+  isNaN(123) → false
+- Confusion → typeof NaN === 'number' কিন্তু আসলে NaN মানে "Not a Number"।
+
+4. Date Object
+- new Date() → বর্তমান তারিখ/সময়।
+- Comparison → getTime() ব্যবহার করে দুইটি date compare করা যায়।
+- Example:
+  const date1 = new Date('1971-03-26');
+  const date2 = new Date('1971-12-16');
+  if(date1.getTime() < date2.getTime()){
+    console.log('march was before december');
+  }
+
+5. Error Types
+- Range Error → array length পরিবর্তন করলে বা invalid range ব্যবহার করলে।
+  Example:
+    const numbers = [3, 4, 5];
+    numbers.length = 2; // range error prone
+- Reference Error → undefined variable access করলে।
+  Example:
+    console.log(money); // money defined হওয়ার আগে call করলে error
+- Syntax Error → ভুল syntax লিখলে।
+  Example:
+    for(let i = 0; i < 5 i++){ } // missing semicolon
+- Type Error → invalid property access করলে।
+  Example:
+    let student = {address: 'kochukhet'};
+    console.log(student.address.city); // city নেই → undefined
+
+6. Try-Catch-Finally
+- try → risky code block।
+- catch → error হলে handle করে।
+- finally → সবসময় execute হয়।
+- Example:
+  try {
+    console.log(district); // ReferenceError
+    let district = 'bBaria';
+  }
+  catch(error){
+    console.log('inside catch');
+  }
+  finally {
+    console.log('finally done');
+  }
+
+📌 Summary
+- typeof → data type চেক।
+- Array.isArray() → array কিনা চেক।
+- isNaN → number নয় কিনা চেক।
+- Date object → সময়/তারিখ compare।
+- Error types → Range, Reference, Syntax, Type।
+- try-catch-finally → error handle করার জন্য ব্যবহার হয়।
