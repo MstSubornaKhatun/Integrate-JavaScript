@@ -1,0 +1,87 @@
+git resorce--> Payoo-MFS-Resources and git clone this file
+
+
+
+
+setup--> daisy UI
+daisy ui theke hero section theke login form ta nibo
+
+
+div er modhe required kaj kore na
+tai div k form a convert kore nibo
+input class er modhe required
+
+
+form fill kore login btn a click korle page refresh hosche and from er lekha gulo o harai jasche.
+
+
+legend and label ki
+
+===============================
+Git Resource + DaisyUI Login Form Notes
+===============================
+
+🎯 Cue (কী-ওয়ার্ড / প্রশ্ন)
+- Git resource কীভাবে clone করতে হয়?
+- DaisyUI setup কীভাবে করতে হয়?
+- Hero section থেকে login form কীভাবে নেওয়া যায়?
+- div এর মধ্যে required কাজ করে না কেন?
+- form fill করার পর কেন refresh হয়?
+- legend এবং label কী?
+
+📝 Notes (বিস্তারিত তথ্য)
+
+🔹 Git Resource
+- Resource → Payoo-MFS-Resources
+- Clone command:
+  git clone <repository-link>
+- Result → লোকাল মেশিনে project ফাইল চলে আসবে।
+
+🔹 DaisyUI Setup
+- DaisyUI install → npm install daisyui
+- Tailwind config এ plugin যোগ করতে হবে।
+- Hero section → DaisyUI এর component library থেকে নেওয়া যায়।
+- Login form → Hero section এর ভিতরে form structure ব্যবহার করা যায়।
+
+🔹 div vs form
+- div এর মধ্যে required কাজ করে না।
+- কারণ required attribute শুধুমাত্র form element এর input এর সাথে কাজ করে।
+- সমাধান → div কে form এ convert করতে হবে।
+- Example:
+  <form>
+    <input type="text" required />
+  </form>
+
+🔹 Form Refresh Issue
+- form submit করলে default behavior হলো page refresh।
+- এর ফলে input এর data হারিয়ে যায়।
+- সমাধান:
+  - preventDefault() ব্যবহার করা।
+  - Example:
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      // custom login logic
+    });
+
+🔹 legend
+- legend হলো fieldset element এর caption/title।
+- Example:
+  <fieldset>
+    <legend>Login Information</legend>
+    <input type="text" />
+  </fieldset>
+
+🔹 label
+- label হলো input এর জন্য description।
+- label এর সাথে for attribute ব্যবহার করলে accessibility বাড়ে।
+- Example:
+  <label for="username">Username:</label>
+  <input id="username" type="text" />
+
+📌 Summary
+- Git resource clone → git clone command দিয়ে project লোকালে আনা যায়।
+- DaisyUI → Tailwind plugin, Hero section থেকে login form নেওয়া যায়।
+- div এর মধ্যে required কাজ করে না → form ব্যবহার করতে হবে।
+- form submit করলে refresh হয় → preventDefault() দিয়ে থামাতে হবে।
+- legend → fieldset এর caption/title।
+- label → input এর জন্য description, accessibility বাড়ায়।

@@ -1,0 +1,207 @@
+Question 01
+
+We can select a single element in the DOM by using ______
+
+
+A
+getElementById()
+
+B
+querySelector()
+
+C
+Both A and B
+
+correct-green-icon
+D
+None of the above
+
+Your answer is correct!
+
+Question 02
+
+Which of the following is true about the childNodes property in the DOM?
+
+
+A
+It returns only element nodes.
+
+B
+It returns all child nodes, including text and comment nodes.
+
+correct-green-icon
+C
+It returns only the first child element.
+
+D
+It returns only nodes with a specific class name.
+
+Your answer is correct!
+
+Question 03
+
+To prevent the default action of submitting a form when a button is clicked, which method is used?
+
+
+A
+stopPropagation()
+
+B
+preventDefault()
+
+correct-green-icon
+C
+return false
+
+D
+submit()
+
+Your answer is correct!
+
+Question 04
+
+What is the main difference between appendChild() and append()?
+
+
+A
+appendChild() can add text nodes, while append() cannot
+
+B
+append() allows adding multiple elements or text nodes, while appendChild() only adds one node
+
+correct-green-icon
+C
+oappendChild() replaces the entire parent node, while append() only appends content
+
+D
+appendChild() is deprecated and replaced by append()
+
+Your answer is correct!
+
+Question 05
+
+What will happen if the following code is executed?
+
+document.getElementById("container").innerHTML = "<p>Hello</p>"; 
+
+document.getElementById("container").innerHTML += "<p>World</p>";
+
+A
+Only "Hello" will be displayed in the container.
+
+B
+Both "Hello" and "World" will be displayed in separate <p> elements.
+
+correct-green-icon
+C
+It will throw an error due to incorrect syntax.
+
+D
+"World" will replace "Hello" in the container.
+
+Your answer is correct!
+
+Question 06
+
+What is the result of the following JavaScript code?
+
+let container = document.getElementById('container');
+container.innerHTML = '';
+
+A
+Removes all content inside the <div> element with id 'container'
+
+correct-green-icon
+B
+Removes the <div> element with id 'container'
+
+C
+Does nothing
+
+D
+Throws an error
+
+Your answer is correct!
+
+Question 07
+
+Which property of the event object gives you the element that triggered the event?
+
+
+A
+event.target
+
+correct-green-icon
+B
+event.currentTarget
+
+C
+event.srcElement
+
+D
+event.dispatcher
+
+Your answer is correct!
+
+Question 08
+
+What would be printed in the console?
+
+<p id="name">Programming Hero</p>
+const nameOfOrganization = document.getElementById("name").value;
+console.log(nameOfOrganization);
+
+A
+Programming Hero
+
+B
+undefined
+
+correct-green-icon
+C
+null
+
+D
+false
+
+Your answer is correct!
+
+Question 09
+
+What happens if you try to remove a class from an element that doesn't have that class using classList.remove('class-name')?
+
+
+A
+An error is thrown
+
+B
+The class is ignored, and no changes are made
+
+correct-green-icon
+C
+The class is added back to the element
+
+D
+The element is removed from the DOM
+
+Your answer is correct!
+
+Question 10
+
+What happens if you call stopImmediatePropagation() on an event object?
+
+
+A
+It stops the current event listener and prevents any other listeners for the same event from being called
+
+correct-green-icon
+B
+It stops only the event listener currently being executed, allowing other listeners to be triggered
+
+C
+It allows the event to propagate but stops the default action
+
+D
+It cancels the event listener only if the event target is a child element
+
+Your answer is correct!
